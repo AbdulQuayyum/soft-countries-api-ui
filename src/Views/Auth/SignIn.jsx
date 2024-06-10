@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { DocumentTitle } from '../../Utilities/DocumentTitle'
 
 const SignInPage = () => {
