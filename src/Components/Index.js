@@ -1,4 +1,7 @@
 import Footer from "./Footer";
 import Header from "./Header";
+import Sidebar from "./Sidebar";
 
-export { Footer, Header }
+import AuthModal from "./Modals/AuthModal";
+
+export { Footer, Header, Sidebar, AuthModal };
