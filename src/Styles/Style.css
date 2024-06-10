@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Nunito";
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(216, 216, 216);
+    border-radius: 40px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+html {
+    background-color: #FAFAF9;
+    font-size: 1rem;
+
+    @media screen and (max-width: 48rem) {
+        font-size: 0.875rem;
+    }
+
+    @media screen and (max-width: 26.5625rem) {
+        font-size: 0.625rem;
+    }
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+.main-container {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back-to-top {
+    position: fixed;
+    right: 2rem;
+    bottom: -20%;
+    background-color: #fff;
+    opacity: 0.8;
+    padding: 0.5rem;
+    border: 1px solid #000;
+    border-radius: 0.4rem;
+    z-index: 2000;
+    transition: 0.4s;
+}
+
+.back-to-top-icon {
+    color: #000;
+}
+
+.show-back-to-top {
+    bottom: 3rem;
+}
+
+/* For large devices */
+@media screen and (max-width: 992px) {
+    .back-to-top {
+        right: 1.5rem;
+        padding: 0.25rem 0.4rem;
+    }
+
+    .back-to-top-icon {
+        font-size: 1.25rem;
+    }
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px) {
+    .show-back-to-top {
+        bottom: 4rem;
+    }
+}
+
+/* For small devices */
+@media screen and (max-width: 350px) {
+    .back-to-top {
+        right: 1rem;
+    }
+}
