@@ -52,7 +52,6 @@ html {
 
 .navbar-container {
     max-width: 1440px;
-    margin: auto;
     width: 100%;
     align-items: center;
     display: flex;
@@ -64,12 +63,8 @@ html {
 
 .navbar-sub-container {
     padding: 6px 36px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(120, 120, 120, .36);
     border-radius: 8px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .back-to-top {

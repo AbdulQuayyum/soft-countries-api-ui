@@ -7,11 +7,11 @@ export default function GeneralLayout() {
   return (
     <div className="layout">
       <Header />
-      <main className="main-container mt-28">
+      <main className="main-container">
         <Outlet />
+        <Footer />
       </main>
-      <Footer />
-      <BackToTop />
+      <BackToTop /> 
     </div>
   )
 }

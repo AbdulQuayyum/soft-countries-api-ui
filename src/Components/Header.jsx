@@ -27,7 +27,7 @@ const Header = () => {
             <Link to="/" className='flex items-center logo gap-x-4'>
                 <img src={assets.logo} alt='Logo' className='object-contain w-auto h-10' />
             </Link>
-            <div className='navbar-sub-container items-center hidden gap-2 lg:flex gap-x-12'>
+            <div className='items-center hidden gap-2 navbar-sub-container lg:flex gap-x-12'>
                 <Link to="/Pricing" className=''>
                     Pricing
                 </Link>
@@ -38,11 +38,11 @@ const Header = () => {
                     FAQ
                 </Link>
                 <span className='py-4 border-r-[1px] border-black'></span>
-                <button className='text-black bg-transparent border-black border rounded-lg px-6 py-2 items-center'>
+                <button className='items-center px-6 py-2 text-black bg-transparent border border-black rounded-lg'>
                     Sign In
                 </button>
             </div>
-            <button className='text-white bg-black rounded-lg px-6 py-3 items-center'>
+            <button className='items-center px-6 py-3 text-white bg-black rounded-lg'>
                 Get Started
             </button>
         </nav>
