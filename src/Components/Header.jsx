@@ -31,16 +31,16 @@ const Header = () => {
                 <Link to="/Pricing" className=''>
                     Pricing
                 </Link>
-                <Link to="/Pricing" className=''>
+                <Link to="/Documentation" className=''>
                     Documentation
                 </Link>
-                <Link to="/Pricing" className=''>
+                <span className='py-4 border-r-[1px] border-black'></span>
+                <Link to="/FAQ" className=''>
                     FAQ
                 </Link>
-                <span className='py-4 border-r-[1px] border-black'></span>
-                <button className='items-center px-6 py-2 text-black bg-transparent border border-black rounded-lg'>
-                    Sign In
-                </button>
+                <Link to="/Feedback" className=''>
+                    Feedback
+                </Link>
             </div>
             <button className='items-center px-6 py-3 text-white bg-black rounded-lg'>
                 Get Started
