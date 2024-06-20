@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
-import { CiUser, CiLogout } from "react-icons/ci";
+import { CiUser } from "react-icons/ci";
 import { RiCloseLine, RiMenu3Line } from 'react-icons/ri';
 
 import assets from "../Assets/Index"
-import { Sidebar, AuthModal } from "./Index"
+import { AuthModal } from "./Index"
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
