@@ -8,7 +8,7 @@ const Homepage = lazy(() => import("../Views/General/Home"))
 const DocumentationPage = lazy(() => import("../Views/General/Documentation"))
 const FAQPage = lazy(() => import("../Views/General/FAQ"))
 const PricingPage = lazy(() => import("../Views/General/Pricing"))
-const FeedbackPage = lazy(() => import("../Views/General/Feedback"))
+const ContactUsPage = lazy(() => import("../Views/General/ContactUs"))
 
 const ErrorPage = lazy(() => import("../Views/General/ErrorPage"))
 const PageNotFoundPage = lazy(() => import("../Views/General/PageNotFound"))
@@ -21,7 +21,7 @@ function MainRoutes() {
                 <Route path="/Documentation" element={UseSuspense(DocumentationPage)()} />
                 <Route path="/FAQ" element={UseSuspense(FAQPage)()} />
                 <Route path="/Pricing" element={UseSuspense(PricingPage)()} />
-                <Route path="/Feedback" element={UseSuspense(FeedbackPage)()} />
+                <Route path="/ContactUs" element={UseSuspense(ContactUsPage)()} />
                 <Route path="*" element={UseSuspense(PageNotFoundPage)()} />
             </Route>
         )

@@ -38,11 +38,11 @@ const Header = () => {
                 <Link to="/FAQ" className=''>
                     FAQ
                 </Link>
-                <Link to="/Feedback" className=''>
-                    Feedback
+                <Link to="/ContactUs" className=''>
+                    Contact Us
                 </Link>
             </div>
-            <button className='items-center px-6 py-3 text-white bg-black rounded-lg'>
+            <button className='items-center px-6 py-2.5 text-white bg-black rounded-lg'>
                 Get Started
             </button>
         </nav>
