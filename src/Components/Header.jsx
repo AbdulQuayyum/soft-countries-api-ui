@@ -61,8 +61,8 @@ const Header = () => {
                     <Link to="/Pricing" className=''>
                         Pricing
                     </Link>
-                    <Link to="/Documentation" className=''>
-                        Documentation
+                    <Link to="/Resources" className=''>
+                        Resources
                     </Link>
                     <span className='py-4 border-r-[1px] border-black'></span>
                     <Link to="/FAQ" className=''>
@@ -92,8 +92,8 @@ const Header = () => {
                             <Link to="/Pricing" className=''>
                                 Pricing
                             </Link>
-                            <Link to="/Documentation" className=''>
-                                Documentation
+                            <Link to="/Resources" className=''>
+                                Resources
                             </Link>
                             <Link to="/FAQ" className=''>
                                 FAQ

@@ -11,7 +11,7 @@ export default function GeneralLayout() {
         <Outlet />
         <Footer />
       </main>
-      <BackToTop /> 
+      <BackToTop />
     </div>
   )
 }

@@ -54,7 +54,7 @@ const Hero = () => {
         <div className='flex flex-col-reverse items-center justify-between w-full py-10 mt-0 gap-x-10 lg:gap-x-20 lg:mt-10 lg:flex-row'>
             <div className="flex flex-col items-center justify-center max-w-xl lg:items-start gap-y-2 lg:gap-y-4 ">
                 <span className="text-4xl lg:text-6xl text-center lg:text-left py-6 font-extrabold text-[#000]" >Welcome to the Soft Countries API! </span>
-                <span className="text-base font-bold text-center lg:text-left lg:text-lg">This API Service provides various datasets related to countries, including flags, codes, capitals, continents, and more. </span>
+                <span className="text-xl font-bold text-center lg:text-left">This API Service provides various datasets related to countries, including flags, codes, capitals, continents, and more. </span>
             </div>
             <div className='hero-img' style={{ backgroundImage: `url(${currentImageUrl})` }}>
                 <span className={`country-name ${position}`}>{currentName}</span>
