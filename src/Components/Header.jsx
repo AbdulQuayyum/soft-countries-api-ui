@@ -64,7 +64,7 @@ const Header = () => {
                     <Link to="/Pricing" className=''>
                         Pricing
                     </Link>
-                    <span className='py-4 border-r-[1px] border-black'></span>
+                    <span className='py-4 border-r-[1px] border-[#2E2C34]'></span>
                     <Link to="/FAQ" className=''>
                         FAQ
                     </Link>
@@ -74,11 +74,11 @@ const Header = () => {
                 </div>
                 <div className='flex items-center gap-x-8'>
                     {user ?
-                        <div onClick={HandleOpen} className='flex p-2 border border-black rounded-lg cursor-pointer'>
+                        <div onClick={HandleOpen} className='flex p-2 border border-[#2E2C34] rounded-lg cursor-pointer'>
                             <CiUser size={24} color='#101042' />
                         </div>
                         :
-                        <button onClick={HandleShowModal} className='items-center px-6 hidden md:flex py-2.5 border border-black rounded-lg'>
+                        <button onClick={HandleShowModal} className='items-center px-6 hidden md:flex py-2.5 border border-[#2E2C34] rounded-lg'>
                             Get Started
                         </button>
                     }
