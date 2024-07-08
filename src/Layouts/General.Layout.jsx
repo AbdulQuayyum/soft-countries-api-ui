@@ -5,13 +5,15 @@ import BackToTop from "../Utilities/BackToTop"
 
 export default function GeneralLayout() {
   return (
-    <div className="layout">
-      <Header />
-      <main className="main-container mt-28">
-        <Outlet />
+    <>
+      <div className="layout">
+        <Header />
+        <main className="main-container mt-28">
+          <Outlet />
+        </main>
         <Footer />
-      </main>
+      </div>
       <BackToTop />
-    </div>
+    </>
   )
 }
