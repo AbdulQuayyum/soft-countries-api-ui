@@ -58,18 +58,18 @@ const Header = () => {
                     <img src={assets.logo} alt='Logo' className='object-contain w-auto h-10' />
                 </Link>
                 <div className='items-center hidden gap-2 md:flex gap-x-12'>
-                    <Link to="/FAQ" className=''>
-                        FAQ
-                    </Link>
-                    <Link to="/ContactUs" className=''>
-                        Contact Us
-                    </Link>
-                    <span className='py-4 border-r-[1px] border-black'></span>
                     <Link to="/Resources" className=''>
                         Resources
                     </Link>
                     <Link to="/Pricing" className=''>
                         Pricing
+                    </Link>
+                    <span className='py-4 border-r-[1px] border-black'></span>
+                    <Link to="/FAQ" className=''>
+                        FAQ
+                    </Link>
+                    <Link to="/ContactUs" className=''>
+                        Contact Us
                     </Link>
                 </div>
                 <div className='flex items-center gap-x-8'>
@@ -89,11 +89,11 @@ const Header = () => {
                 {toggleMenu && (
                     <div ref={dropdownRef} className='absolute right-0 flex flex-col items-start justify-start p-8 transition-all duration-150 bg-white rounded-lg scale-up-center gap-y-3 top-24 sm:top-20'>
                         <div className='flex flex-col items-start gap-y-3'>
-                            <Link to="/Pricing" className=''>
-                                Pricing
-                            </Link>
                             <Link to="/Resources" className=''>
                                 Resources
+                            </Link>
+                            <Link to="/Pricing" className=''>
+                                Pricing
                             </Link>
                             <Link to="/FAQ" className=''>
                                 FAQ
