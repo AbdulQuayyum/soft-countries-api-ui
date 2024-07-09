@@ -8,7 +8,7 @@ export default function GeneralLayout() {
     <>
       <div className="layout">
         <Header />
-        <main className="main-container mt-28">
+        <main className="main-container">
           <Outlet />
         </main>
         <Footer />

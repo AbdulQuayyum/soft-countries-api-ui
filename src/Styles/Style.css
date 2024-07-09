@@ -96,14 +96,14 @@ html {
 
 .navbar-container {
     max-width: 1400px;
-    margin: auto;
+    /* margin: auto; */
     width: 100%;
     align-items: center;
     display: flex;
     padding: 12px 16px;
     justify-content: space-between;
-    position: fixed;
-    z-index: 99999999;
+    /* position: fixed;
+    z-index: 99999999; */
     background: rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -231,9 +231,81 @@ html {
     bottom: 3rem;
 }
 
-@media (min-width: 1024px) {
+.form-input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+    gap: 4px;
+    width: 100%;
 }
 
+.form-input label {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #2E2C34;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    font-weight: 900;
+    opacity: 0.7;
+}
+
+.form-input input,
+.form-input .input-div {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid #667085 !important;
+    width: 100%;
+    background: transparent !important;
+    outline: 0;
+}
+
+.form-input input {
+    padding: 0;
+    border: 0;
+    background: transparent !important;
+}
+
+.form-input .input-div:focus,
+.form-input .input-div:focus-within,
+.form-input input:focus,
+.form-input input:focus-within {
+    background: transparent !important;
+    border-bottom: 1px solid #2E2C34 !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 0 #0000;
+}
+
+.contact-form-area {
+    height: 11rem;
+}
+
+.contact-form-area textarea {
+    resize: none;
+    padding: 0.65rem 1rem;
+    border: 1px solid #667085;
+    border-radius: 0.5rem;
+    width: 100%;
+    background: transparent;
+    outline: 0;
+}
+
+.contact-form-area textarea:focus,
+.contact-form-area textarea:focus-within {
+    border: 1px solid #2E2C34;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 0 #0000;
+}
+
+.is-danger {
+    border: 2px solid red !important;
+}
+
+.help {
+    position: absolute;
+    bottom: -24px;
+    right: 0;
+    color: red;
+}
+
+@media (min-width: 1024px) {}
 
 /* For large devices */
 @media screen and (max-width: 992px) {
