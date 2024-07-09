@@ -136,7 +136,7 @@ const ResourcesPage = () => {
                         })}
                     </ol>
                 </div>
-                <div className='block sticky top-[178px] sm:top-[136px] bg-[#FAFAF9] py-5 z-[10] lg:hidden w-full'>
+                <div style={{ background: "rgba(255, 255, 255, 0.2)", backdropFilter: "blur(5px)" }} className='block sticky top-24 sm:top-20 py-5 z-[10] lg:hidden w-full'>
                     <Select
                         isSearchable
                         value={sections.find(option => option.Heading === selectedOption)}
@@ -166,8 +166,7 @@ const ResourcesPage = () => {
                             <ul className='!list-disc pl-5 !mb-4'>
                                 {steps.map((step, index) => (
                                     <li key={index} className='gap-x-1'>
-                                        <p className='font-bold'>{step.title}:</p>
-                                        <p className='items-center inline-block'>{step.description}</p>
+                                        <b className='pr-1 font-bold'>{step.title}:</b>{step.description}
                                     </li>
                                 ))}
                             </ul>
@@ -194,8 +193,7 @@ const ResourcesPage = () => {
                                     <ul className='!list-disc pl-5 !mb-4'>
                                         {Object.keys(countryDatasets).map(key => (
                                             <li key={key} className='py-2 gap-x-1'>
-                                                <span className='font-bold'>{key}:</span>
-                                                <p>{countryDatasets[key].description}</p>
+                                                <b className='pr-1 font-bold '>{key}:</b>{countryDatasets[key].description}
                                             </li>
                                         ))}
                                     </ul>
