@@ -5,7 +5,7 @@ import GeneralLayout from "../Layouts/General.Layout"
 import UseSuspense from "../Utilities/UseSuspense"
 
 const Homepage = lazy(() => import("../Views/General/Home"))
-const DocumentationPage = lazy(() => import("../Views/General/Documentation"))
+const ResourcesPage = lazy(() => import("../Views/General/Resources"))
 const FAQPage = lazy(() => import("../Views/General/FAQ"))
 const PricingPage = lazy(() => import("../Views/General/Pricing"))
 const ContactUsPage = lazy(() => import("../Views/General/ContactUs"))
@@ -18,7 +18,7 @@ function MainRoutes() {
         createRoutesFromElements(
             <Route path='/' errorElement={UseSuspense(ErrorPage)()} element={<GeneralLayout />}>
                 <Route index element={UseSuspense(Homepage)()} />
-                <Route path="/Documentation" element={UseSuspense(DocumentationPage)()} />
+                <Route path="/Resources" element={UseSuspense(ResourcesPage)()} />
                 <Route path="/FAQ" element={UseSuspense(FAQPage)()} />
                 <Route path="/Pricing" element={UseSuspense(PricingPage)()} />
                 <Route path="/ContactUs" element={UseSuspense(ContactUsPage)()} />

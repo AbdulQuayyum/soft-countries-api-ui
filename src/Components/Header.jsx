@@ -58,13 +58,13 @@ const Header = () => {
                     <img src={assets.logo} alt='Logo' className='object-contain w-auto h-10' />
                 </Link>
                 <div className='items-center hidden gap-2 md:flex gap-x-12'>
+                    <Link to="/Resources" className=''>
+                        Resources
+                    </Link>
                     <Link to="/Pricing" className=''>
                         Pricing
                     </Link>
-                    <Link to="/Documentation" className=''>
-                        Documentation
-                    </Link>
-                    <span className='py-4 border-r-[1px] border-black'></span>
+                    <span className='py-4 border-r-[1px] border-[#2E2C34]'></span>
                     <Link to="/FAQ" className=''>
                         FAQ
                     </Link>
@@ -74,11 +74,11 @@ const Header = () => {
                 </div>
                 <div className='flex items-center gap-x-8'>
                     {user ?
-                        <div onClick={HandleOpen} className='flex p-2 border border-black rounded-lg cursor-pointer'>
+                        <div onClick={HandleOpen} className='flex p-2 border border-[#2E2C34] rounded-lg cursor-pointer'>
                             <CiUser size={24} color='#101042' />
                         </div>
                         :
-                        <button onClick={HandleShowModal} className='items-center px-6 hidden md:flex py-2.5 border border-black rounded-lg'>
+                        <button onClick={HandleShowModal} className='items-center px-6 hidden md:flex py-2.5 border border-[#2E2C34] rounded-lg'>
                             Get Started
                         </button>
                     }
@@ -89,11 +89,11 @@ const Header = () => {
                 {toggleMenu && (
                     <div ref={dropdownRef} className='absolute right-0 flex flex-col items-start justify-start p-8 transition-all duration-150 bg-white rounded-lg scale-up-center gap-y-3 top-24 sm:top-20'>
                         <div className='flex flex-col items-start gap-y-3'>
+                            <Link to="/Resources" className=''>
+                                Resources
+                            </Link>
                             <Link to="/Pricing" className=''>
                                 Pricing
-                            </Link>
-                            <Link to="/Documentation" className=''>
-                                Documentation
                             </Link>
                             <Link to="/FAQ" className=''>
                                 FAQ
@@ -121,7 +121,7 @@ const Header = () => {
                     </div>
                 )}
             </nav>
-            {showModal && <AuthModal prop="login" setShowModal={setShowModal} /> }
+            {showModal && <AuthModal prop="login" setShowModal={setShowModal} />}
         </>
     )
 }

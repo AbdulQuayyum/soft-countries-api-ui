@@ -76,7 +76,7 @@ const AuthModal = ({ prop, setShowModal }) => {
                     <div className='flex items-center justify-center pb-6'>
                         <img src="/logo.png" alt="logo" className='object-contain w-auto h-10' />
                     </div>
-                    <div className='flex items-center justify-center w-full p-6 bg-black rounded-md'>
+                    <div className='flex items-center justify-center w-full p-6 bg-[#2E2C34] rounded-md'>
                         <span className='text-white font-[500] text-[24px] sm:text-[40px] leading-[40px]'>{info[type].header}</span>
                     </div>
                     <div className='flex items-center justify-center p-4'>
@@ -95,7 +95,7 @@ const AuthModal = ({ prop, setShowModal }) => {
                             onChange={HandleChange}
                             disabled={isEmailDisabled}
                             placeholder="youremail@email.com"
-                            className="w-full px-6 py-3 text-sm transition-all text-black duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed"
+                            className="w-full px-6 py-3 text-sm transition-all text-[#2E2C34] duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed"
                         />
                     </div>
                     {type === "forgotPassword" && forgotPasswordStep > 1 &&
@@ -108,7 +108,7 @@ const AuthModal = ({ prop, setShowModal }) => {
                                 onChange={HandleChange}
                                 disabled={isPinDisabled}
                                 placeholder="Enter your PIN"
-                                className="w-full px-6 py-3 text-sm transition-all text-black duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed"
+                                className="w-full px-6 py-3 text-sm transition-all text-[#2E2C34] duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed"
                             />
                         </div>
                     }
@@ -122,10 +122,10 @@ const AuthModal = ({ prop, setShowModal }) => {
                                     name='password'
                                     onChange={HandleChange}
                                     placeholder="********"
-                                    className="w-full px-6 py-3 text-sm transition-all text-black duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed"
+                                    className="w-full px-6 py-3 text-sm transition-all text-[#2E2C34] duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed"
                                 />
                                 <button
-                                    className="absolute inset-y-0 bottom-0 right-0 flex items-center px-4 text-black"
+                                    className="absolute inset-y-0 bottom-0 right-0 flex items-center px-4 text-[#2E2C34]"
                                     onClick={TogglePasswordVisibility}
                                 >
                                     {isPasswordVisible ? (
@@ -147,10 +147,10 @@ const AuthModal = ({ prop, setShowModal }) => {
                                     name='password'
                                     onChange={HandleChange}
                                     placeholder="********"
-                                    className="w-full px-6 py-3 text-sm transition-all text-black duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed"
+                                    className="w-full px-6 py-3 text-sm transition-all text-[#2E2C34] duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed"
                                 />
                                 <button
-                                    className="absolute inset-y-0 bottom-0 right-0 flex items-center px-4 text-black"
+                                    className="absolute inset-y-0 bottom-0 right-0 flex items-center px-4 text-[#2E2C34]"
                                     onClick={TogglePasswordVisibility}
                                 >
                                     {isPasswordVisible ? (
@@ -177,7 +177,7 @@ const AuthModal = ({ prop, setShowModal }) => {
                         <button
                             disabled={IsDisabled}
                             onClick={HandleSubmit}
-                            className='w-full px-8 py-4 text-sm text-white transition-all bg-black border border-black rounded-md sm:py-3 disabled:opacity-50 disabled:cursor-not-allowed hover:text-black hover:bg-transparent'>
+                            className='w-full px-8 py-4 text-sm text-white transition-all bg-[#2E2C34] border border-[#2E2C34] rounded-md sm:py-3 disabled:opacity-50 disabled:cursor-not-allowed hover:text-[#2E2C34] hover:bg-transparent'>
                             {info[type].buttonText}
                         </button>
                     </div>
