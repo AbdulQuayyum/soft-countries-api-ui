@@ -94,6 +94,8 @@ html {
     align-items: center;
 }
 
+/* Header */
+
 .navbar-container {
     max-width: 1400px;
     /* margin: auto; */
@@ -102,8 +104,8 @@ html {
     display: flex;
     padding: 12px 16px;
     justify-content: space-between;
-    /* position: fixed;
-    z-index: 99999999; */
+    position: fixed;
+    z-index: 99999999;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -129,6 +131,8 @@ html {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     z-index: 99999999999;
 }
+
+/* Hero Section */
 
 .hero-img {
     position: absolute;
@@ -173,6 +177,8 @@ html {
     right: 0px;
 }
 
+/* Modals  */
+
 .modal {
     position: fixed;
     height: 100%;
@@ -210,6 +216,8 @@ html {
     border-radius: 1.5rem;
 }
 
+/* Back to top  */
+
 .back-to-top {
     position: fixed;
     right: 2rem;
@@ -230,6 +238,8 @@ html {
 .show-back-to-top {
     bottom: 3rem;
 }
+
+/* conatct us  */
 
 .form-input {
     position: relative;
@@ -305,7 +315,64 @@ html {
     color: red;
 }
 
-@media (min-width: 1024px) {}
+/* resources */
+/* CustomDiv Styles */
+.custom-div {
+    color: #232A30;
+    width: 100%;
+}
+
+.custom-div section {
+    margin-bottom: 3.5rem;
+}
+
+.custom-div section .heading {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 42px;
+    color: #232A30;
+    margin-bottom: 1.5rem;
+}
+
+.custom-div section .subsection h6 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 30px;
+    margin-bottom: 1rem;
+    color: #232A30;
+}
+
+.custom-div section .subsection span {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 25.5px;
+}
+
+.custom-div section .subsection li {
+    font-size: 17px;
+    padding: 12px 4px;
+    font-weight: 400;
+    line-height: 25.5px;
+}
+
+
+@media (max-width: 1024px) {
+    .custom-div {
+        margin-bottom: 1.5rem;
+    }
+
+    .custom-div h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.25;
+    }
+
+    .custom-div ul li {
+        /* line-height: 1.5; */
+        margin-bottom: 0.25rem;
+        padding-left: 0.5rem;
+    }
+}
 
 /* For large devices */
 @media screen and (max-width: 992px) {

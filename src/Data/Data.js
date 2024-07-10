@@ -2,1001 +2,478 @@ export const DocumentationData = [
 
 ]
 
-export const FlagsData = [
-    {
-        "name": "Afghanistan",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/af.svg"
+export const sections = [
+    { id: "introduction", Heading: "Introduction" },
+    { id: "getstarted", Heading: "Get Started" },
+    { id: "endpoints", Heading: "Endpoints" },
+    { id: "integration", Heading: "Integration" },
+    { id: "responses", Heading: "Responses" },
+    { id: "error", Heading: "Error Handling" },
+]
+
+export const countryDatasets = {
+    "africa-countries-id": {
+        description: "Provides data on African countries, including flags, country codes, and means of identification."
     },
-    {
-        "name": "Albania",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/al.svg"
+    "africa-countries": {
+        description: "Provides general data about African countries."
     },
-    {
-        "name": "Algeria",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/dz.svg"
+    "allcountries": {
+        description: "Provides general data about all countries."
     },
-    {
-        "name": "American Samoa",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/as.svg"
+    "calling-code-flag": {
+        description: "Provides countries calling code, country name, country code and country flag."
     },
-    {
-        "name": "Andorra",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ad.svg"
+    "countries-capital": {
+        description: "Provides the capital cities of countries."
     },
-    {
-        "name": "Angola",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ao.svg"
+    "countries-code": {
+        description: "Provides the calling codes of countries."
     },
-    {
-        "name": "Anguilla",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ai.svg"
+    "countries-continent": {
+        description: "Lists countries and their respective continents."
     },
-    {
-        "name": "Antarctica",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/aq.svg"
+    "countries-name": {
+        description: "Provides a simple list of country names."
     },
-    {
-        "name": "Antigua and Barbuda",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ag.svg"
+    "countries-states": {
+        description: "Provides a list of countries and their states."
     },
-    {
-        "name": "Argentina",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ar.svg"
+    "countries": {
+        description: "Provides country names and their codes."
     },
-    {
-        "name": "Armenia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/am.svg"
+    "country-flag-currency": {
+        description: "Provides country flags, names, codes, and currency details."
     },
-    {
-        "name": "Aruba",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/aw.svg"
+    "country-flag": {
+        description: "Provides country flags and codes."
     },
-    {
-        "name": "Australia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/au.svg"
+    "country-with-flag": {
+        description: "Combines country names with their flags."
     },
-    {
-        "name": "Austria",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/at.svg"
+    "nigeria-states-lga": {
+        description: "Provides data on states in Nigeria and their local governments."
     },
-    {
-        "name": "Azerbaijan",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/az.svg"
+    "nigerian-plate-numbers": {
+        description: "Provides data on three letter codes on vehicle plate number and their local government in Nigeria."
     },
-    {
-        "name": "Bahamas",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bs.svg"
+    "nigerian-states": {
+        description: "Provides data on states in Nigeria."
     },
-    {
-        "name": "Bahrain",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bh.svg"
-    },
-    {
-        "name": "Bangladesh",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bd.svg"
-    },
-    {
-        "name": "Barbados",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bb.svg"
-    },
-    {
-        "name": "Belarus",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/by.svg"
-    },
-    {
-        "name": "Belgium",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/be.svg"
-    },
-    {
-        "name": "Belize",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bz.svg"
-    },
-    {
-        "name": "Benin",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bj.svg"
-    },
-    {
-        "name": "Bermuda",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bm.svg"
-    },
-    {
-        "name": "Bhutan",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bt.svg"
-    },
-    {
-        "name": "Bolivia, Plurinational State of",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bo.svg"
-    },
-    {
-        "name": "Bosnia and Herzegovina",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ba.svg"
-    },
-    {
-        "name": "Botswana",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bw.svg"
-    },
-    {
-        "name": "Brazil",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/br.svg"
-    },
-    {
-        "name": "British Indian Ocean Territory",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/io.svg"
-    },
-    {
-        "name": "Brunei Darussalam",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bn.svg"
-    },
-    {
-        "name": "Bulgaria",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bg.svg"
-    },
-    {
-        "name": "Burkina Faso",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bf.svg"
-    },
-    {
-        "name": "Burundi",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bi.svg"
-    },
-    {
-        "name": "Cambodia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/kh.svg"
-    },
-    {
-        "name": "Cameroon",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/cm.svg"
-    },
-    {
-        "name": "Canada",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ca.svg"
-    },
-    {
-        "name": "Cape Verde",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/cv.svg"
-    },
-    {
-        "name": "Cayman Islands",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ky.svg"
-    },
-    {
-        "name": "Central African Republic",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/cf.svg"
-    },
-    {
-        "name": "Chad",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/td.svg"
-    },
-    {
-        "name": "Chile",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/cl.svg"
-    },
-    {
-        "name": "China",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/cn.svg"
-    },
-    {
-        "name": "Christmas Island",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/cx.svg"
-    },
-    {
-        "name": "Cocos (Keeling) Islands",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/cc.svg"
-    },
-    {
-        "name": "Colombia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/co.svg"
-    },
-    {
-        "name": "Comoros",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/km.svg"
-    },
-    {
-        "name": "Congo",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/cg.svg"
-    },
-    {
-        "name": "Congo, The Democratic Republic of the Congo",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/cd.svg"
-    },
-    {
-        "name": "Cook Islands",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ck.svg"
-    },
-    {
-        "name": "Costa Rica",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/cr.svg"
-    },
-    {
-        "name": "Cote d'Ivoire",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ci.svg"
-    },
-    {
-        "name": "Croatia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/hr.svg"
-    },
-    {
-        "name": "Cuba",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/cu.svg"
-    },
-    {
-        "name": "Cyprus",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/cy.svg"
-    },
-    {
-        "name": "Czech Republic",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/cz.svg"
-    },
-    {
-        "name": "Denmark",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/dk.svg"
-    },
-    {
-        "name": "Djibouti",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/dj.svg"
-    },
-    {
-        "name": "Dominica",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/dm.svg"
-    },
-    {
-        "name": "Dominican Republic",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/do.svg"
-    },
-    {
-        "name": "Ecuador",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ec.svg"
-    },
-    {
-        "name": "Egypt",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/eg.svg"
-    },
-    {
-        "name": "El Salvador",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sv.svg"
-    },
-    {
-        "name": "Equatorial Guinea",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gq.svg"
-    },
-    {
-        "name": "Eritrea",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/er.svg"
-    },
-    {
-        "name": "Estonia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ee.svg"
-    },
-    {
-        "name": "Ethiopia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/et.svg"
-    },
-    {
-        "name": "Falkland Islands (Malvinas)",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/fk.svg"
-    },
-    {
-        "name": "Faroe Islands",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/fo.svg"
-    },
-    {
-        "name": "Fiji",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/fj.svg"
-    },
-    {
-        "name": "Finland",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/fi.svg"
-    },
-    {
-        "name": "France",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/fr.svg"
-    },
-    {
-        "name": "French Guiana",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gf.svg"
-    },
-    {
-        "name": "French Polynesia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/pf.svg"
-    },
-    {
-        "name": "French Southern Territories",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/tf.svg"
-    },
-    {
-        "name": "Gabon",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ga.svg"
-    },
-    {
-        "name": "Gambia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gm.svg"
-    },
-    {
-        "name": "Georgia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ge.svg"
-    },
-    {
-        "name": "Germany",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/de.svg"
-    },
-    {
-        "name": "Ghana",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gh.svg"
-    },
-    {
-        "name": "Gibraltar",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gi.svg"
-    },
-    {
-        "name": "Greece",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gr.svg"
-    },
-    {
-        "name": "Greenland",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gl.svg"
-    },
-    {
-        "name": "Grenada",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gd.svg"
-    },
-    {
-        "name": "Guadeloupe",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gp.svg"
-    },
-    {
-        "name": "Guam",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gu.svg"
-    },
-    {
-        "name": "Guatemala",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gt.svg"
-    },
-    {
-        "name": "Guernsey",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gg.svg"
-    },
-    {
-        "name": "Guinea",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gn.svg"
-    },
-    {
-        "name": "Guinea-Bissau",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gw.svg"
-    },
-    {
-        "name": "Guyana",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gy.svg"
-    },
-    {
-        "name": "Haiti",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ht.svg"
-    },
-    {
-        "name": "Heard & McDonald Islands",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/hm.svg"
-    },
-    {
-        "name": "Holy See (Vatican City State)",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/va.svg"
-    },
-    {
-        "name": "Honduras",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/hn.svg"
-    },
-    {
-        "name": "Hong Kong",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/hk.svg"
-    },
-    {
-        "name": "Hungary",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/hu.svg"
-    },
-    {
-        "name": "Iceland",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/is.svg"
-    },
-    {
-        "name": "India",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/in.svg"
-    },
-    {
-        "name": "Indonesia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/id.svg"
-    },
-    {
-        "name": "Iran",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ir.svg"
-    },
-    {
-        "name": "Iraq",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/iq.svg"
-    },
-    {
-        "name": "Ireland",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ie.svg"
-    },
-    {
-        "name": "Isle of Man",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/im.svg"
-    },
-    {
-        "name": "Israel",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/il.svg"
-    },
-    {
-        "name": "Italy",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/it.svg"
-    },
-    {
-        "name": "Jamaica",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/jm.svg",
-    },
-    {
-        "name": "Jamaica",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/jm.svg"
-    },
-    {
-        "name": "Japan",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/jp.svg"
-    },
-    {
-        "name": "Jersey",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/je.svg"
-    },
-    {
-        "name": "Jordan",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/jo.svg"
-    },
-    {
-        "name": "Kazakhstan",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/kz.svg"
-    },
-    {
-        "name": "Kenya",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ke.svg"
-    },
-    {
-        "name": "Kiribati",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ki.svg"
-    },
-    {
-        "name": "North Korea",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/kp.svg"
-    },
-    {
-        "name": "South Korea",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/kr.svg"
-    },
-    {
-        "name": "Kuwait",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/kw.svg"
-    },
-    {
-        "name": "Kyrgyzstan",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/kg.svg"
-    },
-    {
-        "name": "Kosovo",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/xk.svg"
-    },
-    {
-        "name": "Lao People's Democratic Republic",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/la.svg"
-    },
-    {
-        "name": "Latvia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/lv.svg"
-    },
-    {
-        "name": "Lebanon",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/lb.svg"
-    },
-    {
-        "name": "Lesotho",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ls.svg"
-    },
-    {
-        "name": "Liberia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/lr.svg"
-    },
-    {
-        "name": "Libyan Arab Jamahiriya",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ly.svg"
-    },
-    {
-        "name": "Liechtenstein",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/li.svg"
-    },
-    {
-        "name": "Lithuania",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/lt.svg"
-    },
-    {
-        "name": "Luxembourg",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/lu.svg"
-    },
-    {
-        "name": "Macao",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mo.svg"
-    },
-    {
-        "name": "Macedonia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mk.svg"
-    },
-    {
-        "name": "Madagascar",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mg.svg"
-    },
-    {
-        "name": "Malawi",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mw.svg"
-    },
-    {
-        "name": "Malaysia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/my.svg"
-    },
-    {
-        "name": "Maldives",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mv.svg"
-    },
-    {
-        "name": "Mali",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ml.svg"
-    },
-    {
-        "name": "Malta",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mt.svg"
-    },
-    {
-        "name": "Marshall Islands",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mh.svg"
-    },
-    {
-        "name": "Martinique",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mq.svg"
-    },
-    {
-        "name": "Mauritania",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mr.svg"
-    },
-    {
-        "name": "Mauritius",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mu.svg"
-    },
-    {
-        "name": "Mayotte",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/yt.svg"
-    },
-    {
-        "name": "Mexico",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mx.svg"
-    },
-    {
-        "name": "Micronesia, Federated States of",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/fm.svg"
-    },
-    {
-        "name": "Moldova",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/md.svg"
-    },
-    {
-        "name": "Monaco",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mc.svg"
-    },
-    {
-        "name": "Mongolia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mn.svg"
-    },
-    {
-        "name": "Montenegro",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/me.svg"
-    },
-    {
-        "name": "Montserrat",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ms.svg"
-    },
-    {
-        "name": "Morocco",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ma.svg"
-    },
-    {
-        "name": "Mozambique",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mz.svg"
-    },
-    {
-        "name": "Myanmar",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mm.svg"
-    },
-    {
-        "name": "Namibia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/na.svg"
-    },
-    {
-        "name": "Nauru",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/nr.svg"
-    },
-    {
-        "name": "Nepal",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/np.svg"
-    },
-    {
-        "name": "Netherlands",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/nl.svg"
-    },
-    {
-        "name": "Caribbean Netherlands",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bq.svg"
-    },
-    {
-        "name": "New Caledonia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/nc.svg"
-    },
-    {
-        "name": "New Zealand",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/nz.svg"
-    },
-    {
-        "name": "Nicaragua",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ni.svg"
-    },
-    {
-        "name": "Niger",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ne.svg"
-    },
-    {
-        "name": "Nigeria",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ng.svg"
-    },
-    {
-        "name": "Niue",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/nu.svg"
-    },
-    {
-        "name": "Norfolk Island",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/nf.svg"
-    },
-    {
-        "name": "Northern Mariana Islands",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mp.svg"
-    },
-    {
-        "name": "Norway",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/no.svg"
-    },
-    {
-        "name": "Oman",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/om.svg"
-    },
-    {
-        "name": "Pakistan",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/pk.svg"
-    },
-    {
-        "name": "Palau",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/pw.svg"
-    },
-    {
-        "name": "Palestinian Territory, Occupied",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ps.svg"
-    },
-    {
-        "name": "Panama",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/pa.svg"
-    },
-    {
-        "name": "Papua New Guinea",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/pg.svg"
-    },
-    {
-        "name": "Paraguay",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/py.svg"
-    },
-    {
-        "name": "Peru",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/pe.svg"
-    },
-    {
-        "name": "Philippines",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ph.svg"
-    },
-    {
-        "name": "Pitcairn",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/pn.svg"
-    },
-    {
-        "name": "Poland",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/pl.svg"
-    },
-    {
-        "name": "Portugal",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/pt.svg"
-    },
-    {
-        "name": "Puerto Rico",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/pr.svg",
-    },
-    {
-        "name": "Puerto Rico",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/pr.svg"
-    },
-    {
-        "name": "Qatar",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/qa.svg"
-    },
-    {
-        "name": "Romania",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ro.svg"
-    },
-    {
-        "name": "Russia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ru.svg"
-    },
-    {
-        "name": "Rwanda",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/rw.svg"
-    },
-    {
-        "name": "Réunion",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/re.svg"
-    },
-    {
-        "name": "Saint Barthélemy",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/bl.svg"
-    },
-    {
-        "name": "Saint Helena, Ascension and Tristan Da Cunha",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sh.svg"
-    },
-    {
-        "name": "Saint Kitts and Nevis",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/kn.svg"
-    },
-    {
-        "name": "Saint Lucia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/lc.svg"
-    },
-    {
-        "name": "Saint Martin",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/mf.svg"
-    },
-    {
-        "name": "Saint Pierre and Miquelon",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/pm.svg"
-    },
-    {
-        "name": "Saint Vincent and the Grenadines",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/vc.svg"
-    },
-    {
-        "name": "Samoa",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ws.svg"
-    },
-    {
-        "name": "San Marino",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sm.svg"
-    },
-    {
-        "name": "Sao Tome and Principe",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/st.svg"
-    },
-    {
-        "name": "Saudi Arabia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sa.svg"
-    },
-    {
-        "name": "Senegal",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sn.svg"
-    },
-    {
-        "name": "Serbia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/rs.svg"
-    },
-    {
-        "name": "Seychelles",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sc.svg"
-    },
-    {
-        "name": "Sierra Leone",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sl.svg"
-    },
-    {
-        "name": "Singapore",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sg.svg"
-    },
-    {
-        "name": "Slovakia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sk.svg"
-    },
-    {
-        "name": "Slovenia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/si.svg"
-    },
-    {
-        "name": "Solomon Islands",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sb.svg"
-    },
-    {
-        "name": "Somalia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/so.svg"
-    },
-    {
-        "name": "South Africa",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/za.svg"
-    },
-    {
-        "name": "South Georgia and the South Sandwich Islands",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gs.svg"
-    },
-    {
-        "name": "Spain",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/es.svg"
-    },
-    {
-        "name": "Sri Lanka",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/lk.svg"
-    },
-    {
-        "name": "Sudan",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sd.svg"
-    },
-    {
-        "name": "South Sudan",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ss.svg"
-    },
-    {
-        "name": "Suriname",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sr.svg"
-    },
-    {
-        "name": "Svalbard and Jan Mayen",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sj.svg"
-    },
-    {
-        "name": "Swaziland",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sz.svg"
-    },
-    {
-        "name": "Sweden",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/se.svg"
-    },
-    {
-        "name": "Switzerland",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ch.svg"
-    },
-    {
-        "name": "Syrian Arab Republic",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sy.svg"
-    },
-    {
-        "name": "Sint Maarten",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/sx.svg"
-    },
-    {
-        "name": "Taiwan, Province of China",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/tw.svg"
-    },
-    {
-        "name": "Tajikistan",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/tj.svg"
-    },
-    {
-        "name": "Tanzania",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/tz.svg"
-    },
-    {
-        "name": "Thailand",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/th.svg"
-    },
-    {
-        "name": "Timor-Leste",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/tl.svg"
-    },
-    {
-        "name": "Togo",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/tg.svg"
-    },
-    {
-        "name": "Tokelau",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/tk.svg"
-    },
-    {
-        "name": "Tonga",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/to.svg"
-    },
-    {
-        "name": "Trinidad and Tobago",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/tt.svg"
-    },
-    {
-        "name": "Tunisia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/tn.svg"
-    },
-    {
-        "name": "Turkey",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/tr.svg"
-    },
-    {
-        "name": "Turkmenistan",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/tm.svg"
-    },
-    {
-        "name": "Turks and Caicos Islands",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/tc.svg"
-    },
-    {
-        "name": "Tuvalu",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/tv.svg"
-    },
-    {
-        "name": "Uganda",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ug.svg"
-    },
-    {
-        "name": "Ukraine",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ua.svg"
-    },
-    {
-        "name": "United Arab Emirates",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ae.svg"
-    },
-    {
-        "name": "United Kingdom",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/gb.svg"
-    },
-    {
-        "name": "United States",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/us.svg"
-    },
-    {
-        "name": "Uruguay",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/uy.svg"
-    },
-    {
-        "name": "Uzbekistan",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/uz.svg"
-    },
-    {
-        "name": "Vanuatu",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/vu.svg"
-    },
-    {
-        "name": "Venezuela",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ve.svg"
-    },
-    {
-        "name": "Viet Nam",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/vn.svg"
-    },
-    {
-        "name": "Virgin Islands, British",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/vg.svg"
-    },
-    {
-        "name": "Virgin Islands, U.S.",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/vi.svg"
-    },
-    {
-        "name": "Wallis and Futuna",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/wf.svg"
-    },
-    {
-        "name": "Western Sarah",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/eh.svg"
-    },
-    {
-        "name": "Yemen",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ye.svg"
-    },
-    {
-        "name": "Zambia",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/zm.svg"
-    },
-    {
-        "name": "Zimbabwe",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/zw.svg"
-    },
-    {
-        "name": "Åland Islands",
-        "flag": "https://raw.githubusercontent.com/AbdulQuayyum/data.json/7f45101f3d58d44328a37048e7bb116fc8c972ea/AllCountries/countries-flags-svgs/ax.svg"
+    "west-africa-countries": {
+        description: "Provides data on countries in West Africa, including flags, codes, and means of identification."
     }
+};
+
+export const steps = [
+    {
+        title: "Create an Account",
+        description: "Sign up on our platform to create an account."
+    },
+    {
+        title: "Copy your Username",
+        description: "After creating an account, copy your username from the dashboard. This username will be used to authenticate your requests."
+    },
+    {
+        title: "Generate an API Key",
+        description: "After creating an account, generate your key from the dashboard. This key will be used to authenticate your requests."
+    },
+    {
+        title: "Select Mode",
+        description: "Choose between Test or Live mode. If you select Live mode, add the website URL to allow access."
+    },
+    {
+        title: "Make API Requests",
+        description: "Use your API key and your Username to make authenticated requests to the API endpoints."
+    }
+];
+
+export const responseData = {
+    "africa-countries-id": {
+        flag: "https://twemoji.maxcdn.com/2/svg/1f1f3-1f1ec.svg",
+        country: "Nigeria",
+        code: "ng",
+        meansOfIdentications: ["National Identity Number"]
+    },
+    "africa-countries": {
+        warning: "data is quite much, check it out on your end"
+    },
+    "allcountries": {
+        warning: "data is quite much, check it out on your end"
+    },
+    "calling-code-flag": {
+        name: "Afghanistan",
+        callingCode: "+93",
+        code: "AF",
+        flag: "https://raw.githubusercontent.com/AbdulQuayyum/countries-flag/3fa8683a7546ce658863f556dcc8c32633fc5c1b/af.svg"
+    },
+    "countries-capital": {
+        country: "Afghanistan",
+        city: "Kabul"
+    },
+    "countries-code": {
+        country: "Afghanistan",
+        calling_code: 93
+    },
+    "countries-continent": {
+        country: "Afghanistan",
+        continent: "Asia"
+    },
+    "countries-name": {
+        country: "Afghanistan"
+    },
+    "countries-states": {
+        code2: "AF",
+        code3: "AFG",
+        name: "Afghanistan",
+        capital: "Kabul",
+        region: "Asia",
+        subregion: "Southern Asia",
+        states: [
+            {
+                code: "BDS",
+                name: "Badakhshān",
+                subdivision: null
+            }
+        ]
+    },
+    "countries": {
+        name: "Afghanistan",
+        code: "AF"
+    },
+    "country-flag-currency": {
+        flag: "https://twemoji.maxcdn.com/2/svg/1f1e6-1f1e8.svg",
+        country: "SHP - Ascension Island",
+        code: "ac",
+        currencies: {
+            GBP: {
+                name: "Pound sterling",
+                symbol: "£"
+            },
+            SHP: {
+                name: "Saint Helena pound",
+                symbol: "£"
+            }
+        }
+    },
+    "country-flag": {
+        flag: "https://twemoji.maxcdn.com/2/svg/1f1e6-1f1e8.svg",
+        country: "Ascension Island",
+        code: "ac"
+    },
+    "country-with-flag": {
+        country: "https://twemoji.maxcdn.com/2/svg/1f1e6-1f1e8.svg Ascension Island",
+        code: "ac"
+    },
+    "nigeria-states-lga": {
+        Abia: ["Aba North", "Aba South", "Arochukwu"]
+    },
+    "nigerian-plate-numbers": {
+        "Federal-Capital-Territory-Abuja": [
+            {
+                Abbreviation: "ABJ",
+                LGA: "Abaji Area Council"
+            }
+        ]
+    },
+    "nigerian-states": {
+        state: "Abia",
+        slogan: "GOD'S OWN STATE"
+    },
+    "west-africa-countries": {
+        flag: "https://twemoji.maxcdn.com/2/svg/1f1e7-1f1ef.svg",
+        country: "Benin",
+        code: "bj",
+        meansOfIdentications: [
+            "Passport",
+            "Carte Nationale d'identité (National Identity Card)",
+            "Driving licence",
+            "Residence permit"
+        ]
+    }
+};
+
+export const integrationExamplesData = {
+    javascript: `
+      const axios = require('axios');
+  
+      const fetchData = async (username, apiKey, type) => {
+        try {
+          const response = await axios.post(\`https://soft-countries-api.onrender.com/v1/Service/GetService/\${type}\`, {}, {
+            headers: {
+              'Username': username,
+              'ApiKey': apiKey,
+              'Content-Type': 'application/json'
+            }
+          });
+  
+          console.log(response.data);
+        } catch (error) {
+          console.error('Error fetching data:', error.response ? error.response.data : error.message);
+        }
+      };
+  
+      // Example usage
+      fetchData('your-username', 'your-api-key', 'africa-countries');
+    `,
+    python: `
+      import requests
+  
+      def fetch_data(username, api_key, data_type):
+          url = f'https://soft-countries-api.onrender.com/v1/Service/GetService/{data_type}'
+          headers = {
+              'Username': username,
+              'ApiKey': api_key,
+              'Content-Type': 'application/json'
+          }
+  
+          response = requests.post(url, headers=headers)
+  
+          if response.status_code == 200:
+              print(response.json())
+          else:
+              print(f'Error fetching data: {response.status_code}', response.json())
+  
+      # Example usage
+      fetch_data('your-username', 'your-api-key', 'africa-countries')
+    `,
+    php: `
+      <?php
+  
+      function fetchData($username, $apiKey, $type) {
+          $url = "https://soft-countries-api.onrender.com/v1/Service/GetService/$type";
+          $headers = [
+              "Username: $username",
+              "ApiKey: $apiKey",
+              "Content-Type: application/json"
+          ];
+  
+          $options = [
+              "http" => [
+                  "header" => implode("\\r\\n", $headers),
+                  "method" => "POST"
+              ]
+          ];
+  
+          $context = stream_context_create($options);
+          $response = file_get_contents($url, false, $context);
+  
+          if ($response === FALSE) {
+              die('Error fetching data');
+          }
+  
+          echo $response;
+      }
+  
+      // Example usage
+      fetchData('your-username', 'your-api-key', 'africa-countries');
+      ?>
+    `,
+    ruby: `
+      require 'net/http'
+      require 'uri'
+      require 'json'
+  
+      def fetch_data(username, api_key, data_type)
+        uri = URI.parse("https://soft-countries-api.onrender.com/v1/Service/GetService/#{data_type}")
+        request = Net::HTTP::Post.new(uri)
+        request["Username"] = username
+        request["ApiKey"] = api_key
+        request["Content-Type"] = "application/json"
+  
+        req_options = {
+          use_ssl: uri.scheme == "https",
+        }
+  
+        response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+          http.request(request)
+        end
+  
+        if response.code.to_i == 200
+          puts JSON.pretty_generate(JSON.parse(response.body))
+        else
+          puts "Error fetching data: #{response.code}", JSON.pretty_generate(JSON.parse(response.body))
+        end
+      end
+  
+      # Example usage
+      fetch_data('your-username', 'your-api-key', 'africa-countries')
+    `,
+    java: `
+      import java.io.IOException;
+      import java.io.OutputStream;
+      import java.net.HttpURLConnection;
+      import java.net.URL;
+  
+      public class FetchData {
+          public static void fetchData(String username, String apiKey, String type) throws IOException {
+              URL url = new URL("https://soft-countries-api.onrender.com/v1/Service/GetService/" + type);
+              HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+              connection.setRequestMethod("POST");
+              connection.setRequestProperty("Username", username);
+              connection.setRequestProperty("ApiKey", apiKey);
+              connection.setRequestProperty("Content-Type", "application/json");
+              connection.setDoOutput(true);
+  
+              int responseCode = connection.getResponseCode();
+              if (responseCode == HttpURLConnection.HTTP_OK) {
+                  String response = new String(connection.getInputStream().readAllBytes());
+                  System.out.println(response);
+              } else {
+                  String error = new String(connection.getErrorStream().readAllBytes());
+                  System.out.println("Error fetching data: " + responseCode + " " + error);
+              }
+          }
+  
+          public static void main(String[] args) throws IOException {
+              fetchData("your-username", "your-api-key", "africa-countries");
+          }
+      }
+    `,
+    javascriptNode: `
+      const axios = require('axios');
+  
+      const fetchData = async (username, apiKey, type) => {
+        try {
+          const response = await axios.post(\`https://soft-countries-api.onrender.com/v1/Service/GetService/\${type}\`, {}, {
+            headers: {
+              'Username': username,
+              'ApiKey': apiKey,
+              'Content-Type': 'application/json'
+            }
+          });
+  
+          console.log(response.data);
+        } catch (error) {
+          console.error('Error fetching data:', error.response ? error.response.data : error.message);
+        }
+      };
+  
+      // Example usage
+      fetchData('your-username', 'your-api-key', 'africa-countries');
+    `,
+    javascriptBrowser: `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Fetch Data</title>
+        <script>
+          async function fetchData() {
+            const username = 'your-username';
+            const apiKey = 'your-api-key';
+            const type = 'africa-countries';
+  
+            try {
+              const response = await fetch(\`https://soft-countries-api.onrender.com/v1/Service/GetService/\${type}\`, {
+                method: 'POST',
+                headers: {
+                  'Username': username,
+                  'ApiKey': apiKey,
+                  'Content-Type': 'application/json'
+                }
+              });
+  
+              const data = await response.json();
+              console.log(data);
+            } catch (error) {
+              console.error('Error fetching data:', error);
+            }
+          }
+  
+          window.onload = fetchData;
+        </script>
+      </head>
+      <body>
+        <h1>Fetch Data</h1>
+      </body>
+      </html>
+    `,
+    go: `
+      package main
+  
+      import (
+          "bytes"
+          "fmt"
+          "io/ioutil"
+          "net/http"
+      )
+  
+      func fetchData(username, apiKey, dataType string) {
+          url := fmt.Sprintf("https://soft-countries-api.onrender.com/v1/Service/GetService/%s", dataType)
+  
+          client := &http.Client{}
+          req, err := http.NewRequest("POST", url, bytes.NewBuffer(nil))
+          if err != nil {
+              fmt.Println("Error creating request:", err)
+              return
+          }
+  
+          req.Header.Set("Username", username)
+          req.Header.Set("ApiKey", apiKey)
+          req.Header.Set("Content-Type", "application/json")
+  
+          resp, err := client.Do(req)
+          if err != nil {
+              fmt.Println("Error making request:", err)
+              return
+          }
+          defer resp.Body.Close()
+  
+          if resp.StatusCode == http.StatusOK {
+              body, _ := ioutil.ReadAll(resp.Body)
+              fmt.Println(string(body))
+          } else {
+              body, _ := ioutil.ReadAll(resp.Body)
+              fmt.Printf("Error fetching data: %d %s\n", resp.StatusCode, string(body))
+          }
+      }
+  
+      func main() {
+          fetchData("your-username", "your-api-key", "africa-countries")
+      }
+    `,
+    dart: `
+      import 'package:http/http.dart' as http;
+      import 'dart:convert';
+  
+      Future<void> fetchData() async {
+        final username = 'your-username';
+        final apiKey = 'your-api-key';
+        final type = 'africa-countries';
+  
+        final url = Uri.parse('https://soft-countries-api.onrender.com/v1/Service/GetService/$type');
+  
+        final response = await http.post(
+          url,
+          headers: {
+            'Username': username,
+            'ApiKey': apiKey,
+            'Content-Type': 'application/json',
+          },
+        );
+  
+        if (response.statusCode == 200) {
+          final data = json.decode(response.body);
+          print(data);
+        } else {
+          print('Error fetching data: \${response.statusCode} \${response.body}');
+        }
+      }
+  
+      void main() {
+        fetchData();
+      }
+    `
+};
+
+export const integrationExamplesList = [
+    { id: "javascript", Heading: "Javascript", language: "javascript" },
+    { id: "python", Heading: "Python", language: "python" },
+    { id: "php", Heading: "PHP", language: "php" },
+    { id: "ruby", Heading: "Ruby", language: "ruby" },
+    { id: "java", Heading: "Java", language: "java" },
+    { id: "javascriptNode", Heading: "Javascript (Node Js)", language: "javascript" },
+    { id: "javascriptBrowser", Heading: "javascript (Vanilla Js)", language: "javascript" },
+    { id: "go", Heading: "Go", language: "go" },
+    { id: "dart", Heading: "Dart (Flutter)", language: "dart" }
 ]
