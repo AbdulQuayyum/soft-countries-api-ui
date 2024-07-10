@@ -102,7 +102,7 @@ const FAQPage = () => {
                 },
                 {
                     Q: "How do I upgrade or downgrade my subscription plan?",
-                    A: "You can upgrade or downgrade your subscription plan from your dashboard. Changes to your plan will take effect immediately, and any remaining quota from the previous plan will be carried over to the new plan."
+                    A: "You can upgrade or downgrade your subscription plan from your dashboard. Changes to your plan will take effect immediately."
                 },
                 {
                     Q: "What payment methods are accepted?",
@@ -111,7 +111,19 @@ const FAQPage = () => {
                 {
                     Q: "Can I get a refund if I cancel my subscription?",
                     A: "Refunds are handled on a case-by-case basis. Please contact our support team for assistance with refund requests."
-                }
+                },
+                {
+                    Q: "What happens if I exceed my monthly request limit?",
+                    A: "If you exceed your monthly request limit, you will receive a 429 Too Many Requests response. To avoid interruptions, consider upgrading your plan for higher limits."
+                },
+                {
+                    Q: "How is billing handled for annual subscriptions?",
+                    A: "Annual subscriptions are billed once per year at a discounted rate compared to monthly subscriptions."
+                },
+                {
+                    Q: "Can I get a refund if I cancel my subscription?",
+                    A: "Refunds are handled on a case-by-case basis. Please contact our support team for assistance with refund requests."
+                },
             ]
         },
         {
