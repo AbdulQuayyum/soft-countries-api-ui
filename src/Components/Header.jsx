@@ -8,7 +8,7 @@ import { AuthModal } from "./Index"
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [user, setUser] = useState(false)
+    const [user, setUser] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [toggleMenu, setToggleMenu] = useState(false);
     const dropdownRef = useRef(null);
@@ -32,7 +32,7 @@ const Header = () => {
 
     const HandleShowModal = () => {
         setToggleMenu(false);
-        setShowModal((prev) => !prev)
+        setShowModal((prev) => !prev);
     }
 
     const HandleLogout = () => { setUser(false) }
@@ -126,4 +126,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header;
