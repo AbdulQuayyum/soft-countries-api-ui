@@ -6,7 +6,7 @@ import { CopyBlock, monoBlue } from 'react-code-blocks';
 
 import { DocumentTitle } from '../../Utilities/DocumentTitle'
 import { customStyles02, replaceSpacingWithHyphen } from "../../Utilities/Utilities";
-import { sections, countryDatasets, steps, responseData, integrationExamplesData, integrationExamplesList } from '../../Data/Data';
+import { sections, countryDatasetsv1, countryDatasetsv2, steps, responseData, integrationExamplesData, integrationExamplesList } from '../../Data/Data';
 
 const ResourcesPage = () => {
     DocumentTitle("Soft Countries API || Resources Page")
@@ -115,16 +115,22 @@ const ResourcesPage = () => {
                                 <div className='flex flex-col gap-y-4'>
                                     <h6 className='mt-3 font-bold'>v1 endpoints</h6>
                                     <ul className='!list-disc pl-5 !mb-4'>
-                                        {Object.keys(countryDatasets).map(key => (
+                                        {Object.keys(countryDatasetsv1).map(key => (
                                             <li key={key} className='py-2 gap-x-1'>
-                                                <b className='pr-1 font-bold '>{key}:</b>{countryDatasets[key].description}
+                                                <b className='pr-1 font-bold '>{key}:</b>{countryDatasetsv1[key].description}
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
                                 <div className='flex flex-col gap-y-4'>
                                     <h6 className='mt-3 font-bold'>v2 endpoints</h6>
-                                    <span>No v2 endpoints yet</span>
+                                    <ul className='!list-disc pl-5 !mb-4'>
+                                        {Object.keys(countryDatasetsv2).map(key => (
+                                            <li key={key} className='py-2 gap-x-1'>
+                                                <b className='pr-1 font-bold '>{key}:</b>{countryDatasetsv2[key].description}
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
                         </div>
