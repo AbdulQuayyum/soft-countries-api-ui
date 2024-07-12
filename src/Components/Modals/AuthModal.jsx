@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { PiXThin, PiEyeThin, PiEyeSlashThin } from "react-icons/pi";
 import { TbLoader3 } from 'react-icons/tb';
 import cogoToast from 'cogo-toast';
@@ -8,7 +9,8 @@ import { UseAuth } from '../../Contexts/Auth.Context';
 import { CreateAccount, ForgotPassword, ResetPassword } from '../../APIs/auth.api';
 
 const AuthModal = ({ prop, setShowModal }) => {
-    const { signin } = UseAuth()
+    const { signin, authState } = UseAuth()
+    const navigate = useNavigate()
     const [fields, setFields] = useState({ email: "", password: "" })
     const [type, setType] = useState(prop)
     const [isLoading, setIsLoading] = useState(false);
@@ -72,6 +74,7 @@ const AuthModal = ({ prop, setShowModal }) => {
                     </div>, { position: 'top-right' }
                 );
                 setShowModal(false);
+                navigate(authState.lastVisitedRoute || '/Dashboard');
             } else if (type === "forgotPassword") {
                 if (forgotPasswordStep === 1) {
                     await ForgotPassword(forgotPasswordFields.email);
