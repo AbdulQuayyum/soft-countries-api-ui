@@ -28,9 +28,9 @@ const Hero = () => {
         }
     };
 
-    useEffect(() => {
-        FetchData();
-    }, []);
+    // useEffect(() => {
+    //     FetchData();
+    // }, []);
 
     useEffect(() => {
         const interval = setInterval(() => {

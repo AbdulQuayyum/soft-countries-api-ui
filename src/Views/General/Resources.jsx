@@ -40,8 +40,8 @@ const ResourcesPage = () => {
                 <span className="text-4xl lg:text-6xl text-center font-extrabold text-[#2E2C34]">Resources Page!</span>
                 <span className="text-xl text-[#667085] font-light text-center">This page contains resources that would help you understand out API Service better</span>
             </div>
-            <div className="container flex flex-col items-start justify-between gap-20 pt-4 lg:flex-row">
-                <div className="max-w-[278px] hidden lg:block w-full sticky z-10 top-40 rounded-xl h-auto ">
+            <div className="container flex flex-col items-start justify-between pt-4 gap-y-20 lg:flex-row">
+                <div className="max-w-[278px] min-w-[250px] hidden lg:block w-full sticky z-10 top-40 rounded-xl h-auto ">
                     <h4 className=" text-lg font-bold uppercase text-[#2E2C34]">Content Outline</h4>
                     <ol className="flex flex-col w-full gap-4 py-6 text-lg tracking-wide rounded-md">
                         {sections?.map((item, index) => {
@@ -75,7 +75,7 @@ const ResourcesPage = () => {
                         onChange={HandleSelectedOption}
                     />
                 </div>
-                <section className="w-full ml-0 custom-div">
+                <section className="ml-0 custom-div">
                     <section id='introduction'>
                         <h3 className='heading'>Welcome to the Soft Countries API!</h3>
                         <div className='flex flex-col gap-y-2'>
@@ -141,7 +141,7 @@ const ResourcesPage = () => {
                             <div className="subsection">
                                 <span>Below are examples of how to integrate the endpoint using different programming languages. These examples demonstrate how to authenticate and fetch data from the API.</span>
                             </div>
-                            <div className="flex flex-col w-full gap-y-4">
+                            <div className="flex flex-col w-full gap-y-4 lg:max-w-2xl xl:max-w-4xl">
                                 <div className='flex justify-end w-full'>
                                     <Select
                                         isSearchable
