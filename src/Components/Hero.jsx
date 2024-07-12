@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { FetchUserFlag } from '../APIs/request.api';
+import { GetData } from '../APIs/request.api';
 
 const Hero = () => {
     const [loading, setLoading] = useState(true);
@@ -11,7 +11,7 @@ const Hero = () => {
 
     const FetchData = async () => {
         try {
-            const response = await FetchUserFlag();
+            const response = await GetData("calling-code-flag");
             setImageList(response.data);
 
             const randomIndex = Math.floor(Math.random() * response.data.length);

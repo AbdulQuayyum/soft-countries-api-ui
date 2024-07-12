@@ -1,28 +1,17 @@
-export const FetchUserFlag = async () => {
-    const apiUrl = `${import.meta.env.VITE_SERVER_URL}/v1/Service/GetService/calling-code-flag`
-    const username = import.meta.env.VITE_USERNAME
-    const apiKey = import.meta.env.VITE_API_KEY
+import axios from 'axios';
 
+const api = axios.create({
+    baseURL: `${import.meta.env.VITE_SERVER_URL}/v1/Service`,
+    headers: { 'Content-Type': 'application/json' }
+});
+
+export const GetData = async (type) => {
     try {
-        const response = await fetch(apiUrl, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                'username': username,
-                'apiKey': apiKey
-            }
+        const response = await api.post(`/GetService/${type}`, {}, {
+            headers: { 'username': import.meta.env.VITE_USERNAME, 'apikey': import.meta.env.VITE_API_KEY }
         });
-        if (!response.ok) {
-            throw new Error("Failed to fetch data");
-        }
-
-        const data = await response.json();
-        if (!data.status) {
-            throw new Error("Failed to fetch data");
-        }
-
-        return data;
+        return response.data;
     } catch (error) {
-        console.error("Error fetching data: ", error)
+        throw error.response ? error.response.data.error : new Error('An error occurred');
     }
-}
+};
