@@ -55,7 +55,7 @@ const Header = () => {
         <>
             <nav className='navbar-container'>
                 <Link to="/" className='flex items-center logo gap-x-4'>
-                    <img src={assets.logo} alt='Logo' className='object-contain w-auto h-10' />
+                    <img src={assets.logoBlack} alt='Logo' className='object-contain w-auto h-10' />
                 </Link>
                 <div className='items-center hidden gap-2 md:flex gap-x-12'>
                     <Link to="/Resources" className=''>
