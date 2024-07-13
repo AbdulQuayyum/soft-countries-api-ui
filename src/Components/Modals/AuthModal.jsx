@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { PiXThin, PiEyeThin, PiEyeSlashThin } from "react-icons/pi";
+import { TbLoader3 } from 'react-icons/tb';
+import cogoToast from 'cogo-toast';
+
+import assests from "../../Assets/Index"
+import { UseAuth } from '../../Contexts/Auth.Context';
+import { CreateAccount, ForgotPassword, ResetPassword } from '../../APIs/auth.api';
 
 const AuthModal = ({ prop, setShowModal }) => {
+    const { signin, authState } = UseAuth()
+    const navigate = useNavigate()
     const [fields, setFields] = useState({ email: "", password: "" })
     const [type, setType] = useState(prop)
+    const [isLoading, setIsLoading] = useState(false);
     const [forgotPasswordStep, setForgotPasswordStep] = useState(1)
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [forgotPasswordFields, setForgotPasswordFields] = useState({ email: "", password: "", pin: "" });
@@ -43,21 +53,64 @@ const AuthModal = ({ prop, setShowModal }) => {
         }
     }
 
-    const HandleSubmit = () => {
-        if (type === "register") {
-            setShowModal(false)
-        } else if (type === "login") {
-            setShowModal(false)
-        } else if (type === "forgotPassword") {
-            if (forgotPasswordStep === 1) {
-                setForgotPasswordStep(2);
-            } else if (forgotPasswordStep === 2) {
-                setForgotPasswordStep(3);
-            } else if (forgotPasswordStep === 3) {
-                setShowModal(false)
+    const HandleSubmit = async () => {
+        setIsLoading(true);
+        try {
+            if (type === "register") {
+                await CreateAccount(fields.email, fields.password);
+                cogoToast.success(
+                    <div>
+                        <b>Success!</b>
+                        <div>Account created successfully. <br /> Please check your email to verify your account.</div>
+                    </div>, { position: 'top-right' }
+                );
+                setShowModal(false);
+            } else if (type === "login") {
+                await signin(fields.email, fields.password);
+                cogoToast.success(
+                    <div>
+                        <b>Success!</b>
+                        <div>Login successful!</div>
+                    </div>, { position: 'top-right' }
+                );
+                setShowModal(false);
+                navigate(authState.lastVisitedRoute || '/Dashboard');
+            } else if (type === "forgotPassword") {
+                if (forgotPasswordStep === 1) {
+                    await ForgotPassword(forgotPasswordFields.email);
+                    cogoToast.success(
+                        <div>
+                            <b>Success!</b>
+                            <div>Verification code sent to your email.</div>
+                        </div>, { position: 'top-right' }
+                    );
+                    setForgotPasswordStep(2);
+                } else if (forgotPasswordStep === 2) {
+                    setForgotPasswordStep(3);
+                } else if (forgotPasswordStep === 3) {
+                    await ResetPassword(forgotPasswordFields.email, forgotPasswordFields.pin, forgotPasswordFields.password);
+                    cogoToast.success(
+                        <div>
+                            <b>Success!</b>
+                            <div>Password reset successfully.</div>
+                        </div>, { position: 'top-right' }
+                    );
+                    setType("login");
+                }
             }
+        } catch (error) {
+            console.error("Error:", error);
+            cogoToast.error(
+                <div>
+                    <b>{error.response?.data?.message || "Error!"}</b>
+                    <div>{error.response?.data?.error || "Something went wrong. Please try again."}</div>
+                </div>, { position: 'top-right' }
+            );
+        } finally {
+            setIsLoading(false);
         }
     };
+
 
     useEffect(() => {
         setFields({ email: "", password: "" });
@@ -74,7 +127,7 @@ const AuthModal = ({ prop, setShowModal }) => {
                 <PiXThin className='modal-close' onClick={() => { setShowModal(false) }} />
                 <div className='flex flex-col items-center'>
                     <div className='flex items-center justify-center pb-6'>
-                        <img src="/logo.png" alt="logo" className='object-contain w-auto h-10' />
+                        <img src={assests.logoBlack} alt="logo" className='object-contain w-auto h-10' />
                     </div>
                     <div className='flex items-center justify-center w-full p-6 bg-[#2E2C34] rounded-md'>
                         <span className='text-white font-[500] text-[24px] sm:text-[40px] leading-[40px]'>{info[type].header}</span>
@@ -163,11 +216,7 @@ const AuthModal = ({ prop, setShowModal }) => {
                         </div>
                     }
                     {type !== "forgotPassword" &&
-                        <div className='flex flex-row justify-between my-2'>
-                            <div className='flex flex-row items-center gap-x-2'>
-                                <input type="checkbox" name="remember" id="remember" className='accent-[#101042] h-4 w-4 cursor-pointer' />
-                                <span className='font-[400] text-[12px] sm:text-[14px] text-[#77808B]'>Remember my login</span>
-                            </div>
+                        <div className='flex flex-row justify-end my-2'>
                             <div className='flex py-2'>
                                 <span className='cursor-pointer font-[500] text-[12px] sm:text-[14px] text-[#0C141D]' onClick={() => { setType("forgotPassword") }}>Forgot Password?</span>
                             </div>
@@ -177,8 +226,8 @@ const AuthModal = ({ prop, setShowModal }) => {
                         <button
                             disabled={IsDisabled}
                             onClick={HandleSubmit}
-                            className='w-full px-8 py-4 text-sm text-white transition-all bg-[#2E2C34] border border-[#2E2C34] rounded-md sm:py-3 disabled:opacity-50 disabled:cursor-not-allowed hover:text-[#2E2C34] hover:bg-transparent'>
-                            {info[type].buttonText}
+                            className={`w-full justify-center flex items-center px-8 py-4 text-sm text-white transition-all bg-[#2E2C34] border border-[#2E2C34] rounded-md sm:py-3 disabled:opacity-50 disabled:cursor-not-allowed hover:text-[#2E2C34] hover:bg-transparent ${isLoading ? ' cursor-wait' : ' cursor-pointer'}`}>
+                            {isLoading ? (<TbLoader3 size={24} className="animate-spin" />) : (<span className='font-[500] text-[14px]'>{info[type].buttonText}</span>)}
                         </button>
                     </div>
                 </div>
