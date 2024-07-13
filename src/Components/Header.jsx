@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CiUser } from "react-icons/ci";
 import { RiCloseLine, RiMenu3Line } from "react-icons/ri";
-import cogoToast from 'cogo-toast';
 
 import { UseAuth } from "../Contexts/Auth.Context";
 import assets from "../Assets/Index";

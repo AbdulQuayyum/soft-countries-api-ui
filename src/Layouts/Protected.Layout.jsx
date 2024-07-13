@@ -7,13 +7,28 @@ import { UseAuth } from '../Contexts/Auth.Context';
 const ProtectedLayout = () => {
   const { pathname } = useLocation();
   const { authState, setLastVisitedRoute } = UseAuth();
-  const [showSidebar, setShowSidebar] = useState(false)
+  const [showSidebar, setShowSidebar] = useState(true)
 
   useEffect(() => {
     if (!authState.token) {
       setLastVisitedRoute(pathname);
     }
   }, [authState.token, pathname, setLastVisitedRoute]);
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 1024) {
+        setShowSidebar(false);
+      } else {
+        setShowSidebar(true);
+      }
+    }
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   if (!authState.token) {
     return <Navigate to="/" replace />;
