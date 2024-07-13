@@ -1,22 +1,41 @@
 import { useState, useEffect, useRef } from 'react';
-import { LuChevronsRight, LuCopy } from "react-icons/lu";
+import { LuAlignLeft, LuCopy } from "react-icons/lu";
 import { CiUser } from "react-icons/ci";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import { UseAuth } from '../../Contexts/Auth.Context';
+import { SwitchMode } from '../../APIs/user.api';
 
-const DashboardHeader = ({ setShowSidebar, user }) => {
+const DashboardHeader = ({ setShowSidebar, user, forceRefetch }) => {
     const { logout } = UseAuth();
     const [isOpen, setIsOpen] = useState(false);
-    const [testModeChecked, setTestModeChecked] = useState(true);
+    const [testModeChecked, setTestModeChecked] = useState(false);
     const dropdownRef = useRef(null);
+
+    useEffect(() => {
+        if (user?.mode === "live") {
+            setTestModeChecked(true);
+        } else {
+            setTestModeChecked(false);
+        }
+    }, [user?.mode]);
 
     const HandleToggleSidebar = () => {
         setShowSidebar((prevState) => !prevState);
     }
 
-    const handleTestModeChange = () => {
+    const HandleSwitchMode = () => {
+        SwitchMode({ username: user?.username, mode: (user?.mode === 'test') ? 'live' : 'test' });
+    };
+
+
+    const HandleToggleMode = () => {
         setTestModeChecked((prev) => !prev);
+        HandleSwitchMode()
+
+        setTimeout(() => {
+            forceRefetch();
+        }, 2000);
     }
 
     const HandleOpen = () => { setIsOpen((prev) => !prev) }
@@ -39,15 +58,16 @@ const DashboardHeader = ({ setShowSidebar, user }) => {
     }, [isOpen]);
 
     return (
-        <nav className="dashboard-header-container">
+        <nav className={`dashboard-header-container ${user?.mode === "live" ? " !border-b-2 !border-b-green-500" : ""}`}>
             <div className="block lg:invisible" onClick={() => { HandleToggleSidebar() }}>
-                <LuChevronsRight size={20} />
+                <LuAlignLeft size={20} />
             </div>
             <div className="flex flex-row items-center gap-x-4">
                 <label className="inline-flex items-center cursor-pointer me-5">
-                    <input type="checkbox" defaultChecked={testModeChecked} onChange={handleTestModeChange} className="sr-only peer" />
-                    <div className="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-transparent peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#2E2C34]"></div>
-                    <span className="text-base font-extrabold text-[#2E2C34] ms-3">Test Mode</span>
+                    <span className="text-base font-extrabold text-[#2E2C34] me-3">Test Mode</span>
+                    <input type="checkbox" checked={testModeChecked} onChange={HandleToggleMode} className="sr-only peer" />
+                    <div className="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-transparent peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500"></div>
+                    <span className="text-base font-extrabold text-[#2E2C34] ms-3">Live Mode</span>
                 </label>
                 <div onClick={HandleOpen} className='flex p-2 border border-[#2E2C34] rounded-lg cursor-pointer'>
                     <CiUser size={24} color='#101042' />

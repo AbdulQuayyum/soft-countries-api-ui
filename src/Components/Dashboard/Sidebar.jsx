@@ -15,7 +15,7 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
             {showSidebar &&
                 <aside className="pb-8 sidebar-container">
                     <div className="flex flex-col items-start w-full h-full">
-                        <div className="flex items-center justify-between w-full px-3 pt-2 pb-5 md:px-0 md:pl-5">
+                        <div className="flex items-center justify-between w-full px-3 pb-5 pt-7 md:pt-2 md:px-0 md:pl-5">
                             <Link to="/" className="">
                                 <img src='/logo.png' alt="Logo" className="flex object-contain w-auto h-10 lg:hidden" />
                                 <img src={assets.logoBlack} alt="Logo" className="hidden object-contain w-auto h-10 lg:flex" />
