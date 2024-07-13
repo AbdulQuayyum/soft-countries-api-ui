@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { CiUser } from "react-icons/ci";
 import { RiCloseLine, RiMenu3Line } from "react-icons/ri";
 
@@ -9,6 +9,7 @@ import assets from "../Assets/Index";
 const Header = ({ setShowModal }) => {
     const { authState } = UseAuth();
     const navigate = useNavigate()
+    const location = useLocation();
     const user = authState.user;
     const [toggleMenu, setToggleMenu] = useState(false);
     const dropdownRef = useRef(null);
@@ -39,17 +40,20 @@ const Header = ({ setShowModal }) => {
         setToggleMenu((prev) => !prev);
     };
 
+
+    const isActive = (path) => location.pathname === path ? 'active-link' : '';
+
     return (
         <nav className="navbar-container">
             <Link to="/" className="flex items-center logo gap-x-4">
                 <img src={assets.logoBlack} alt="Logo" className="object-contain w-auto h-10" />
             </Link>
             <div className="items-center hidden gap-2 md:flex gap-x-12">
-                <Link to="/Resources" className=""> Resources</Link>
-                <Link to="/Pricing" className=""> Pricing</Link>
+                <Link to="/Resources" className={`nav-link ${isActive('/Resources')}`}>Resources</Link>
+                <Link to="/Pricing" className={`nav-link ${isActive('/Pricing')}`}>Pricing</Link>
                 <span className="py-4 border-r-[1px] border-[#2E2C34]"></span>
-                <Link to="/FAQ" className=""> FAQ</Link>
-                <Link to="/ContactUs" className=""> Contact Us</Link>
+                <Link to="/FAQ" className={`nav-link ${isActive('/FAQ')}`}>FAQ</Link>
+                <Link to="/ContactUs" className={`nav-link ${isActive('/ContactUs')}`}>Contact Us</Link>
             </div>
             <div className="flex items-center gap-x-8">
                 {user ? (
@@ -72,10 +76,10 @@ const Header = ({ setShowModal }) => {
             {toggleMenu && (
                 <div ref={dropdownRef} className="absolute right-0 flex flex-col items-start justify-start p-8 transition-all duration-150 bg-white rounded-lg scale-up-center gap-y-3 top-24 sm:top-20" >
                     <div className="flex flex-col items-start gap-y-3">
-                        <Link to="/Resources" className=""> Resources</Link>
-                        <Link to="/Pricing" className=""> Pricing</Link>
-                        <Link to="/FAQ" className=""> FAQ</Link>
-                        <Link to="/ContactUs" className=""> Contact Us</Link>
+                        <Link to="/Resources" className={`nav-link ${isActive('/Resources')}`}>Resources</Link>
+                        <Link to="/Pricing" className={`nav-link ${isActive('/Pricing')}`}>Pricing</Link>
+                        <Link to="/FAQ" className={`nav-link ${isActive('/FAQ')}`}>FAQ</Link>
+                        <Link to="/ContactUs" className={`nav-link ${isActive('/ContactUs')}`}>Contact Us</Link>
                     </div>
                     {user ? (
                         <Link to="/Dashboard" className="">Dashboard</Link>

@@ -132,6 +132,17 @@ html {
     z-index: 999;
 }
 
+/* Add this to your CSS file */
+.nav-link {
+    transition: border-bottom 0.5s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link.active-link {
+    border-bottom: 2px solid #2E2C34;
+}
+
+
 /* Hero Section */
 
 .hero-img {
@@ -391,6 +402,14 @@ html {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.sidebar-container a {
+    transition: border-left 0.5s ease;
+}
+
+.sidebar-container a.active-link {
+    border-left: 4px solid #2E2C34;
+}
+
 @media (max-width: 1024px) {
     .custom-div {
         margin-bottom: 1.5rem;
@@ -426,6 +445,26 @@ html {
     .show-back-to-top {
         bottom: 4rem;
     }
+
+    .custom-div section .subsection span {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .custom-div section .heading {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    
+    .custom-div section .subsection h6 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .custom-div section .subsection li {
+        font-size: 14px;
+        line-height: 20px;
+    }
 }
 
 /* For small devices */
@@ -448,6 +487,10 @@ html {
     .hero-img {
         width: 400px;
         box-shadow: inset 0 0 0 6px rgb(53 67 88 / 30%);
+    }
+
+    .sidebar-container {
+        max-width: 80px;
     }
 }
 
