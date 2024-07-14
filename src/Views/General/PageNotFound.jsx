@@ -21,7 +21,7 @@ const PageNotFound = () => {
             onClick={() => {
               navigate("/")
             }}
-            className="flex items-center text-base outlined my-4 px-8 font-medium py-3 text-[#2E2C34] border-[#2E2C34] transition-all duration-150 border-[1px] border-[#2E2C34] rounded-md hover:bg-transparent hover:text-[#2E2C34]"
+            className="flex items-center text-base outlined my-4 px-8 font-medium py-3 text-[#2E2C34] border-[#2E2C34] transition-all duration-150 border-[1px] rounded-md hover:bg-transparent hover:text-[#2E2C34]"
           >
             Back to homepage
           </button>

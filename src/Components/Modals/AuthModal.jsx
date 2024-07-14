@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PiXThin, PiEyeThin, PiEyeSlashThin } from "react-icons/pi";
 import { TbLoader3 } from 'react-icons/tb';
-import cogoToast from 'cogo-toast';
+import toast from 'react-hot-toast';
 
 import assests from "../../Assets/Index"
 import { UseAuth } from '../../Contexts/Auth.Context';
@@ -58,54 +58,29 @@ const AuthModal = ({ prop, setShowModal }) => {
         try {
             if (type === "register") {
                 await CreateAccount(fields.email, fields.password);
-                cogoToast.success(
-                    <div>
-                        <b>Success!</b>
-                        <div>Account created successfully. <br /> Please check your email to verify your account.</div>
-                    </div>, { position: 'top-right' }
-                );
+                toast.success('Account created successfully! Please check your email to verify your account')
                 setShowModal(false);
             } else if (type === "login") {
                 await signin(fields.email, fields.password);
-                cogoToast.success(
-                    <div>
-                        <b>Success!</b>
-                        <div>Login successful!</div>
-                    </div>, { position: 'top-right' }
-                );
+                toast.success('Login successful!')
                 setShowModal(false);
                 navigate(authState.lastVisitedRoute || '/Dashboard');
             } else if (type === "forgotPassword") {
                 if (forgotPasswordStep === 1) {
                     await ForgotPassword(forgotPasswordFields.email);
-                    cogoToast.success(
-                        <div>
-                            <b>Success!</b>
-                            <div>Verification code sent to your email.</div>
-                        </div>, { position: 'top-right' }
-                    );
+                    toast.success('Verification code sent to your email!')
                     setForgotPasswordStep(2);
                 } else if (forgotPasswordStep === 2) {
                     setForgotPasswordStep(3);
                 } else if (forgotPasswordStep === 3) {
                     await ResetPassword(forgotPasswordFields.email, forgotPasswordFields.pin, forgotPasswordFields.password);
-                    cogoToast.success(
-                        <div>
-                            <b>Success!</b>
-                            <div>Password reset successfully.</div>
-                        </div>, { position: 'top-right' }
-                    );
+                    toast.success('Password reset successfully!')
                     setType("login");
                 }
             }
         } catch (error) {
             console.error("Error:", error);
-            cogoToast.error(
-                <div>
-                    <b>{error.response?.data?.message || "Error!"}</b>
-                    <div>{error.response?.data?.error || "Something went wrong. Please try again."}</div>
-                </div>, { position: 'top-right' }
-            );
+            toast.error(`${error.response?.data?.error}`)
         } finally {
             setIsLoading(false);
         }

@@ -24,5 +24,6 @@ export const AddWebsite = (data) => api.post('/AddWebsite', data);
 export const RemoveWebsite = (data) => api.post('/RemoveWebsite', data);
 export const GetUserTransactions = (data) => api.post('/GetUserTransactions', data);
 export const GetUserInfo = (username) => api.post(`/GetUser/${username}`);
+export const GetUserActivities = (data) => api.post('/GetUserActivities', data);
 
 export default api;

@@ -40,14 +40,14 @@ const ProtectedLayout = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await GetUserInfo(authState.user.username);
+      const response = await GetUserInfo(authState.user?.username);
       const userData = response.data.data;
       setUserInfo(userData);
     } catch (error) {
       setError(error.message || 'An error occurred while fetching user information.');
     }
     setLoading(false);
-  }, [authState.user.username]);
+  }, [authState.user?.username]);
 
   useEffect(() => {
     if (authState.token && authState.user) {
