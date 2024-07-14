@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import Select from 'react-select'
 import emailjs from '@emailjs/browser'
-import cogoToast from 'cogo-toast'
+import toast from 'react-hot-toast';
 
 import { customStyles } from '../../Utilities/Utilities'
 import { UseForm, Validate } from "../../Utilities/Validations/Index"
@@ -27,19 +27,9 @@ const ContactUsPage = () => {
     const SendEmail = () => {
         emailjs.sendForm('service_48ie7qs', 'template_vx1z2un', form.current, 'u52fGo9v9_4YPsyao')
             .then(() => {
-                cogoToast.success(
-                    <div>
-                        <b>Success</b>
-                        <div>Feedback sent successfully</div>
-                    </div>, { position: 'top-right' }
-                )
+                toast.success('Feedback sent successfully!')
             }).catch(() => {
-                cogoToast.error(
-                    <div>
-                        <b>Error</b>
-                        <div>Feedback not sent, try again</div>
-                    </div>, { position: 'top-right' }
-                )
+                toast.error("Feedback not sent, try again.")
             })
     }
 

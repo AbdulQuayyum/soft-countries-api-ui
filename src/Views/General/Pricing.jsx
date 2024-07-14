@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import cogoToast from 'cogo-toast'
+import toast from 'react-hot-toast';
 import { useNavigate, useOutletContext } from 'react-router-dom';
 
 import { DocumentTitle } from '../../Utilities/DocumentTitle';
@@ -49,12 +49,7 @@ const PricingPage = () => {
     const handleSubscribe = (planType, subscriptionType, amount) => {
         if (user) {
             if (planType.toLowerCase() === 'basic') {
-                cogoToast.info(
-                    <div>
-                        <b>Info!</b>
-                        <div>No payment needed for the Basic plan.</div>
-                    </div>, { position: 'top-right' }
-                );
+                toast("No payment needed for the Basic plan.")
                 navigate('/Dashboard');
                 return;
             }
@@ -75,37 +70,17 @@ const PricingPage = () => {
                         });
 
                         if (verifyResponse.data.success) {
-                            cogoToast.success(
-                                <div>
-                                    <b>Success!</b>
-                                    <div>Payment successful! Your account has been upgraded.</div>
-                                </div>, { position: 'top-right' }
-                            )
+                            toast.success('Payment successful! Your account has been upgraded.!')
                         } else {
-                            cogoToast.error(
-                                <div>
-                                    <b>Error!</b>
-                                    <div>Payment verification failed.</div>
-                                </div>, { position: 'top-right' }
-                            )
+                            toast.error("Payment verification failed.")
                         }
                     } catch (error) {
-                        cogoToast.error(
-                            <div>
-                                <b>Error!</b>
-                                <div>An error occurred while verifying payment..</div>
-                            </div>, { position: 'top-right' }
-                        )
+                        toast.error("An error occurred while verifying payment.")
                         console.error('Error verifying payment:', error);
                     }
                 },
                 onClose: function () {
-                    cogoToast.info(
-                        <div>
-                            <b>Info!</b>
-                            <div>Payment window closed..</div>
-                        </div>, { position: 'top-right' }
-                    )
+                    toast("Payment window closed.")
                 }
             });
             handler.openIframe();
