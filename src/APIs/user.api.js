@@ -1,4 +1,5 @@
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const api = axios.create({
     baseURL: `${import.meta.env.VITE_SERVER_URL}/v1/User`,
@@ -12,6 +13,18 @@ api.interceptors.request.use(config => {
     }
     return config;
 });
+
+api.interceptors.response.use(
+    response => response,
+    error => {
+        if (error.response.status === 403 && error.response.data?.error?.name === "TokenExpiredError") {
+            localStorage.removeItem('token');
+            toast.error("Session expired, Please login again")
+            window.location.replace('/');
+        }
+        return Promise.reject(error);
+    }
+);
 
 export const GenerateAPIKey = (data) => api.post('/GenerateAPIKey', data);
 export const GetAPIKey = (data) => api.post('/GetAPIKey', data);

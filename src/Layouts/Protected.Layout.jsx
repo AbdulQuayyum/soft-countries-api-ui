@@ -42,6 +42,7 @@ const ProtectedLayout = () => {
     try {
       const response = await GetUserInfo(authState.user?.username);
       const userData = response.data.data;
+      // console.log(userData);
       setUserInfo(userData);
     } catch (error) {
       setError(error.message || 'An error occurred while fetching user information.');
