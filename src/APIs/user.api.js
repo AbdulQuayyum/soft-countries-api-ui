@@ -19,6 +19,7 @@ api.interceptors.response.use(
     error => {
         if (error.response.status === 403 && error.response.data?.error?.name === "TokenExpiredError") {
             localStorage.removeItem('token');
+            localStorage.removeItem('user');
             toast.error("Session expired, Please login again")
             window.location.replace('/');
         }

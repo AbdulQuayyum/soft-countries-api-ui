@@ -81,3 +81,51 @@ export const customStyles02 = {
 export const replaceSpacingWithHyphen = (str) => {
     return str.replace(/\s+/g, "-").toLowerCase();
 };
+
+export const compareTimestamps = (a, b) => {
+    // Extract date and time parts from timestamps
+    let [timeA, dateA] = a.timestamp.split(' ');
+    let [timeB, dateB] = b.timestamp.split(' ');
+
+    // Parse dates in format dd-mm-yyyy
+    let [dayA, monthA, yearA] = dateA.split('-').map(Number);
+    let [dayB, monthB, yearB] = dateB.split('-').map(Number);
+
+    // Parse times in format hh:mm:ss
+    let [hourA, minA, secA] = timeA.split(':').map(Number);
+    let [hourB, minB, secB] = timeB.split(':').map(Number);
+
+    // Create date objects for comparison
+    let dateObjA = new Date(yearA, monthA - 1, dayA, hourA, minA, secA);
+    let dateObjB = new Date(yearB, monthB - 1, dayB, hourB, minB, secB);
+
+    // Compare dates and times
+    if (dateObjA < dateObjB) {
+        return 1;
+    }
+    if (dateObjA > dateObjB) {
+        return -1;
+    }
+    // If dates are equal, compare times
+    if (dateObjA.getTime() === dateObjB.getTime()) {
+        if (hourA < hourB) {
+            return 1;
+        }
+        if (hourA > hourB) {
+            return -1;
+        }
+        if (minA < minB) {
+            return 1;
+        }
+        if (minA > minB) {
+            return -1;
+        }
+        if (secA < secB) {
+            return 1;
+        }
+        if (secA > secB) {
+            return -1;
+        }
+    }
+    return 0;
+};
