@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import toast from 'react-hot-toast';
 import { LuAlignLeft, LuCopy } from "react-icons/lu";
 import { CiUser } from "react-icons/ci";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -78,7 +79,7 @@ const DashboardHeader = ({ setShowSidebar, user, forceRefetch }) => {
                     <div className='flex flex-col items-start gap-y-2'>
                         <div className='flex items-center gap-x-2'>
                             <span className='text-[#667085] text-[14px]'>Welcome, {user?.username}</span>
-                            <CopyToClipboard text={user?.username}>
+                            <CopyToClipboard onCopy={() => { toast.success('Userrname copied successfully!') }} text={user?.username}>
                                 <LuCopy className="cursor-pointer" color='#667085' size={14} />
                             </CopyToClipboard>
                         </div>
