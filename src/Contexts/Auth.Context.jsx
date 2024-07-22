@@ -1,5 +1,4 @@
-import { createContext, useState, useContext } from 'react';
-
+import { createContext, useState, useContext, useEffect } from 'react';
 import { SignInAccount } from '../APIs/auth.api';
 
 const AuthContext = createContext();
@@ -8,7 +7,7 @@ export const AuthProvider = ({ children }) => {
     const [authState, setAuthState] = useState({
         token: localStorage.getItem('token') || null,
         user: JSON.parse(localStorage.getItem('user')) || null,
-        lastVisitedRoute: '/Dashboard'
+        lastVisitedRoute: sessionStorage.getItem('lastVisitedRoute') || '/Dashboard'
     });
 
     const signin = async (email, password) => {
@@ -22,11 +21,11 @@ export const AuthProvider = ({ children }) => {
     const logout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        setAuthState({ token: null, user: null });
         setAuthState({ token: null, user: null, lastVisitedRoute: '/Dashboard' });
     };
 
     const setLastVisitedRoute = (route) => {
+        sessionStorage.setItem('lastVisitedRoute', route);
         setAuthState((prevState) => ({ ...prevState, lastVisitedRoute: route }));
     };
 

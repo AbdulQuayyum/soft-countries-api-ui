@@ -35,6 +35,8 @@ const GetRecentActivities = ({ data }) => {
                 return 'Added a new website';
             case '/v1/User/RemoveWebsite':
                 return 'Removed a website';
+            case '/v1/Auth/ChangePassword':
+                return 'Changed the password';
             default:
                 return url;
         }

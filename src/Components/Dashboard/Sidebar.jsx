@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { LuChevronsLeft, LuDoorOpen, LuLayoutGrid, LuSettings2, LuBarChartBig } from "react-icons/lu";
 
@@ -5,8 +6,14 @@ import { UseAuth } from "../../Contexts/Auth.Context";
 import assets from "../../Assets/Index"
 
 const Sidebar = ({ showSidebar, setShowSidebar }) => {
-    const { logout } = UseAuth();
+    const { authState, logout, setLastVisitedRoute } = UseAuth();
     const location = useLocation();
+
+    useEffect(() => {
+        if (authState.lastVisitedRoute !== location.pathname) {
+            setLastVisitedRoute(location.pathname);
+        }
+    }, [location.pathname, setLastVisitedRoute, authState.lastVisitedRoute]);
 
     const isActive = (path) => location.pathname === path ? 'active-link' : '';
 
