@@ -35,7 +35,7 @@ const DashbaordPage = () => {
                 <span className='flex items-center text-xl font-bold lg:text-2xl gap-x-2'>
                     Welcome, {userInfo.username}!
                     <CopyToClipboard onCopy={() => { toast.success('Userrname copied successfully!') }} text={userInfo?.username}>
-                        <LuCopy className="cursor-pointer" color='#667085' size={20} />
+                        <LuCopy className="cursor-pointer" color='#000' size={20} />
                     </CopyToClipboard></span>
                 <span className='text-base lg:text-lg'>You are currenly in the {userInfo?.mode} mode in your {userInfo?.accountType} plan</span>
             </div>
