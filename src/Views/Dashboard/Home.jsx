@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { useOutletContext } from 'react-router-dom';
 import { LuCopy } from "react-icons/lu";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -31,7 +32,11 @@ const DashbaordPage = () => {
                 <span className='text-2xl font-bold lg:text-4xl'>Dashboard Overview</span>
             </div>
             <div className='flex flex-col w-full p-6 bg-white rounded-lg shadow-lg gap-y-4'>
-                <span className='text-xl font-bold lg:text-2xl'>Welcome, {userInfo.username}!</span>
+                <span className='flex items-center text-xl font-bold lg:text-2xl gap-x-2'>
+                    Welcome, {userInfo.username}!
+                    <CopyToClipboard onCopy={() => { toast.success('Userrname copied successfully!') }} text={userInfo?.username}>
+                        <LuCopy className="cursor-pointer" color='#667085' size={20} />
+                    </CopyToClipboard></span>
                 <span className='text-base lg:text-lg'>You are currenly in the {userInfo?.mode} mode in your {userInfo?.accountType} plan</span>
             </div>
             {/* <div className='mt-4'>
