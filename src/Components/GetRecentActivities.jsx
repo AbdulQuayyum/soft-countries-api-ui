@@ -50,7 +50,7 @@ const GetRecentActivities = ({ data }) => {
                     '/v1/User/GetUser/:username',
                     '/v1/User/GetUserActivities'
                 ].includes(activity.url);
-            }).sort(compareTimestamps).slice(0, 5);
+            }).sort(compareTimestamps).slice(0, 9);
 
             setFilteredActivities(filteredData);
             setLoading(false);
@@ -58,7 +58,7 @@ const GetRecentActivities = ({ data }) => {
     }, [data]);
 
     return (
-        <div className='flex flex-col w-full p-6 bg-white rounded-lg shadow-lg gap-y-4'>
+        <div className='flex flex-col w-full px-6 py-3 bg-white rounded-lg shadow-lg gap-y-4'>
             {loading ?
                 (<TbLoader3 size={24} className="animate-spin" />) : (
                     <ul className='pl-5 list-disc'>

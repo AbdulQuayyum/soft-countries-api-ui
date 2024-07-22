@@ -34,7 +34,7 @@ const DashbaordPage = () => {
                 <span className='text-xl font-bold lg:text-2xl'>Welcome, {userInfo.username}!</span>
                 <span className='text-base lg:text-lg'>You are currenly in the {userInfo?.mode} mode in your {userInfo?.accountType} plan</span>
             </div>
-            <div className='mt-4'>
+            {/* <div className='mt-4'>
                 <span className='text-2xl font-bold lg:text-4xl'>Key Metrics</span>
             </div>
             <div className="flex flex-col items-center w-full gap-8 lg:items-stretch lg:flex-row">
@@ -53,7 +53,7 @@ const DashbaordPage = () => {
                         <span className='text-xl font-bold lg:text-2xl'> Live: {userInfo?.accountType === "basic" ? 1000 - userInfo?.callCount : (userInfo?.accountType === "pro" ? 10000 - userInfo?.callCount : (userInfo?.accountType === "volume" ? 100000 - userInfo?.callCount : ""))}</span>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className='mt-4'>
                 <span className='text-2xl font-bold lg:text-4xl'>Recent Activities</span>
             </div>
