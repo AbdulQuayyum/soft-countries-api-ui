@@ -390,6 +390,7 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
     max-width: 280px;
     margin: 12px;
     min-height: 96vh;
@@ -402,12 +403,21 @@ html {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.sidebar-container a {
-    transition: border-left 0.5s ease;
+.sidebar-container a.active-link {
+    position: relative;
+    /* border-left-color: black */
 }
 
-.sidebar-container a.active-link {
-    border-left: 4px solid #2E2C34;
+.sidebar-container a.active-link::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    /* background: black; */
+    transition: top 0.3s, height 0.3s;
+
 }
 
 @media (max-width: 1024px) {
@@ -455,7 +465,7 @@ html {
         font-size: 16px;
         line-height: 20px;
     }
-    
+
     .custom-div section .subsection h6 {
         font-size: 16px;
         line-height: 20px;

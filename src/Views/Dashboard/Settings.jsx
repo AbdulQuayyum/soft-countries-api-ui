@@ -1,19 +1,29 @@
 import { useState, useEffect, useRef } from "react"
+import { useOutletContext } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { TbLoader3 } from 'react-icons/tb';
 import { PiEyeThin, PiEyeSlashThin } from "react-icons/pi";
 
 import { DocumentTitle } from "../../Utilities/DocumentTitle"
+import { IsValidUrl } from "../../Utilities/Utilities";
 import { ChangePassword } from "../../APIs/auth.api";
+import { AddWebsite, RemoveWebsite } from "../../APIs/user.api";
 
 const SettingsPage = () => {
     DocumentTitle("Soft Countries API || Settings Page")
-    const [tab, setTab] = useState("Security");
+    const { userInfo } = useOutletContext();
+    const [websites, setWebsites] = useState([]);
+    const [newWebsite, setNewWebsite] = useState('');
+    const [tab, setTab] = useState(sessionStorage.getItem("activeTab") || "Security");
     const [isLoading, setIsLoading] = useState(false);
     const [isPasswordVisible, setIsPasswordVisible] = useState({ oldPassword: false, newPassword: false, confirmPassword: false });
     const [fields, setFields] = useState({ oldPassword: "", newPassword: "", confirmPassword: "" })
     const underlineRef = useRef(null);
     const tabsRef = useRef([]);
+
+    const IsDisabled = !fields.confirmPassword || !fields.newPassword || !fields.oldPassword
+    const accountTypeLimits = { basic: 1, pro: 3, volume: 10 };
+    const maxWebsites = accountTypeLimits[userInfo.accountType] || 1;
 
     useEffect(() => {
         const activeTab = tabsRef.current.find(t => t.getAttribute('data-tab') === tab);
@@ -23,10 +33,17 @@ const SettingsPage = () => {
         }
     }, [tab]);
 
+    useEffect(() => {
+        sessionStorage.setItem("activeTab", tab);
+    }, [tab]);
+
+    useEffect(() => {
+        setWebsites(userInfo.allowedWebsites || []);
+    }, [userInfo.allowedWebsites]);
+
     function TogglePasswordVisibility(field) {
         setIsPasswordVisible((prevState) => ({ ...prevState, [field]: !prevState[field] }));
     }
-
 
     function HandleChange(event) {
         const { name, value } = event.target;
@@ -77,7 +94,48 @@ const SettingsPage = () => {
         }
     }
 
-    const IsDisabled = !fields.confirmPassword || !fields.newPassword || !fields.oldPassword
+    const HandleAddWebsite = async () => {
+        if (websites.length >= maxWebsites) {
+            toast.error(`Your plan allows you to add only ${maxWebsites} websites.`);
+            return;
+        }
+
+        if (!IsValidUrl(newWebsite)) {
+            toast.error('Please enter a valid website URL.');
+            return;
+        }
+
+        if (websites.includes(newWebsite)) {
+            toast.error('This website is already added.');
+            return;
+        }
+
+        const data = { username: userInfo.username, website: newWebsite };
+        try {
+            await AddWebsite(data);
+            setWebsites([...websites, newWebsite]);
+            setNewWebsite('');
+            toast.success('Website added successfully.');
+        } catch (error) {
+            console.error('Error adding website:', error);
+            toast.error('Failed to add website,' + error.response.data.error);
+        }
+    };
+
+    const HandleRemoveWebsite = async (websiteToRemove) => {
+        const data = { username: userInfo.username, website: websiteToRemove };
+        try {
+            await RemoveWebsite(data);
+            setWebsites((prevWebsites) => {
+                const updatedWebsites = prevWebsites.filter((website) => website !== websiteToRemove);
+                return updatedWebsites;
+            });
+            toast.success('Website removed successfully.');
+        } catch (error) {
+            console.error('Error removing website:', error);
+            toast.error('Failed to add website,' + error.response.data.error);
+        }
+    };
 
     return (
         <div className='flex flex-col w-full px-4 mt-4 gap-y-6'>
@@ -152,7 +210,6 @@ const SettingsPage = () => {
                             </button>
                         </div>
                     </div>
-
                 }
                 {tab === "API Management" &&
                     <div>
@@ -160,8 +217,34 @@ const SettingsPage = () => {
                     </div>
                 }
                 {tab === "Accessibility" &&
-                    <div>
-                        <span>Accessibility</span>
+                    <div className="flex flex-col items-start w-full gap-y-6">
+                        <div className="flex flex-col items-start gap-y-2">
+                            <span className="text-lg font-bold">Add a website</span>
+                            <span className="text-base">Your <span className="capitalize ">{userInfo?.accountType} </span>plan allows you to add up to {maxWebsites} website(s).</span>
+                        </div>
+                        <div className="flex flex-col items-start w-full gap-y-2">
+                            {websites.map((website, index) => (
+                                <div key={index} className="flex items-center w-full gap-x-2">
+                                    <input type="text" value={website} readOnly className="w-full px-6 py-3 text-sm transition-all text-[#2E2C34] duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed" />
+                                    <button onClick={() => HandleRemoveWebsite(website)} className="items-center px-[16px] md:px-[26px] flex py-2 md:py-[10px] border border-red-500 text-red-500 rounded-lg" >
+                                        Remove
+                                    </button>
+                                </div>
+                            ))}
+                            {websites.length < maxWebsites && (
+                                <div className="flex items-center w-full gap-x-2">
+                                    <input type="text" value={newWebsite} onChange={(e) => setNewWebsite(e.target.value)} className="w-full px-6 py-3 text-sm transition-all text-[#2E2C34] duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed" placeholder="Enter website URL" />
+                                    <button onClick={HandleAddWebsite} className="items-center px-10 flex py-2 md:py-[10px] border border-[#2E2C34] rounded-lg" >
+                                        Add
+                                    </button>
+                                </div>
+                            )}
+                            {websites.length >= maxWebsites &&
+                                <div className="flex items-center justify-center w-full py-12">
+                                    <span className="text-lg font-bold">You've reacehd the maximum amount of {maxWebsites} website(s) that you can add on your <span className="capitalize ">{userInfo?.accountType} </span>plan</span>
+                                </div>
+                            }
+                        </div>
                     </div>
                 }
             </div>
