@@ -307,7 +307,7 @@ const SettingsPage = () => {
                                 <div className="flex items-center w-full gap-x-4">
                                     <div className="relative w-full">
                                         <input type="text" value={apiKey} readOnly className="w-full px-6 py-3 text-sm transition-all text-[#2E2C34] duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed" />
-                                        {!apiKeyUsed && (
+                                        {!apiKeyUsed && apiKey != "*********************************************************" && (
                                             <button className="absolute inset-y-0 bottom-0 right-0 flex items-center px-4 text-[#2E2C34]">
                                                 <CopyToClipboard onCopy={() => { toast.success('API Key copied successfully!') }} text={apiKey}>
                                                     <LuCopy className="cursor-pointer" color='#000' size={16} />
