@@ -1,19 +1,24 @@
 import { useState, useEffect, useRef } from "react"
 import { useOutletContext } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { LuCopy, LuBadgeInfo } from "react-icons/lu";
 import { TbLoader3 } from 'react-icons/tb';
 import { PiEyeThin, PiEyeSlashThin } from "react-icons/pi";
 
 import { DocumentTitle } from "../../Utilities/DocumentTitle"
-import { IsValidUrl } from "../../Utilities/Utilities";
+import { FormatDateToInputValue, IsValidUrl } from "../../Utilities/Utilities";
 import { ChangePassword } from "../../APIs/auth.api";
-import { AddWebsite, RemoveWebsite } from "../../APIs/user.api";
+import { AddWebsite, RemoveWebsite, GenerateAPIKey, GetAPIKey, DeleteAPIKey, SetAPIKeyExpiration } from "../../APIs/user.api";
 
 const SettingsPage = () => {
     DocumentTitle("Soft Countries API || Settings Page")
     const { userInfo } = useOutletContext();
     const [websites, setWebsites] = useState([]);
     const [newWebsite, setNewWebsite] = useState('');
+    const [apiKey, setApiKey] = useState('*********************************************************');
+    const [expirationDate, setExpirationDate] = useState(() => FormatDateToInputValue(userInfo.apiKeyExpiration));
+    const [apiKeyUsed, setApiKeyUsed] = useState(userInfo.apiKeyUsed || false);
     const [tab, setTab] = useState(sessionStorage.getItem("activeTab") || "Security");
     const [isLoading, setIsLoading] = useState(false);
     const [isPasswordVisible, setIsPasswordVisible] = useState({ oldPassword: false, newPassword: false, confirmPassword: false });
@@ -40,6 +45,14 @@ const SettingsPage = () => {
     useEffect(() => {
         setWebsites(userInfo.allowedWebsites || []);
     }, [userInfo.allowedWebsites]);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setApiKey("*********************************************************");
+        }, 60000);
+
+        return () => clearTimeout(timer);
+    }, [apiKey, setApiKey]);
 
     function TogglePasswordVisibility(field) {
         setIsPasswordVisible((prevState) => ({ ...prevState, [field]: !prevState[field] }));
@@ -137,6 +150,70 @@ const SettingsPage = () => {
         }
     };
 
+    const FetchAPIKey = async () => {
+        setIsLoading(true);
+        try {
+            const { data } = await GetAPIKey({ username: userInfo.username });
+            if (data.success) {
+                setApiKey(data.data);
+                setApiKeyUsed(true);
+                toast.success('API Key fetched successfully.');
+            } else {
+                setApiKeyUsed(false);
+            }
+        } catch (error) {
+            console.error('Error fetching API key:', error);
+            toast.error('Failed to fetch API Key,' + error.response.data.error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const HandleGenerateAPIKey = async () => {
+        setIsLoading(true);
+        try {
+            const { data } = await GenerateAPIKey({ username: userInfo.username });
+            if (data.success) {
+                setApiKey(data.data);
+                setApiKeyUsed(false);
+                toast.success('API Key generated successfully.');
+            }
+        } catch (error) {
+            console.error('Error generating API key:', error);
+            toast.error('Error generating API key');
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const HandleDeleteAPIKey = async () => {
+        setIsLoading(true);
+        try {
+            await DeleteAPIKey({ username: userInfo.username });
+            setApiKey("*********************************************************");
+            setApiKeyUsed(false);
+            toast.success('API Key deleted successfully.');
+        } catch (error) {
+            console.error('Error deleting API key:', error);
+            toast.error('Failed to delete API Key,' + error.response.data.error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const HandleSetExpirationDate = async () => {
+        setIsLoading(true);
+        try {
+            await SetAPIKeyExpiration(({ username: userInfo.username, expirationDate: expirationDate }));
+            toast.success('Expiration date set successfully');
+        } catch (error) {
+            console.error('Error setting expiration date:', error);
+            toast.error('Failed to set API Key expiration date,' + error.response.data.error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     return (
         <div className='flex flex-col w-full px-4 mt-4 gap-y-6'>
             <div>
@@ -209,11 +286,75 @@ const SettingsPage = () => {
                                 {isLoading ? (<TbLoader3 size={24} className="animate-spin" />) : (<span className='font-[500] text-[14px]'>Change Password</span>)}
                             </button>
                         </div>
+                        <div className="flex flex-col items-start mt-12 gap-y-4">
+                            <span className="flex items-center text-base gap-x-3">  <LuBadgeInfo color='#000' size={16} />Be sure it has at least 8 characters long</span>
+                            <span className="flex items-center text-base gap-x-3">  <LuBadgeInfo color='#000' size={16} />Be sure it includes at least one UPPERCASE letter</span>
+                            <span className="flex items-center text-base gap-x-3">  <LuBadgeInfo color='#000' size={16} />Be sure it includes at least one lowercase letter</span>
+                            <span className="flex items-center text-base gap-x-3">  <LuBadgeInfo color='#000' size={16} />Be sure it includes at least one digit</span>
+                            <span className="flex items-center text-base gap-x-3">  <LuBadgeInfo color='#000' size={16} />Be sure it contains special characters</span>
+                        </div>
                     </div>
                 }
                 {tab === "API Management" &&
-                    <div>
-                        <span>API Management</span>
+                    <div className="flex flex-col items-start w-full gap-y-6">
+                        <div className="flex flex-col items-start w-full gap-y-2">
+                            <span className="text-lg font-bold">API Management</span>
+                            <span className="text-base">Manage your API key and its expiration date here.</span>
+                        </div>
+                        <div className="flex flex-col items-start w-full gap-y-4">
+                            <div className="flex flex-col w-full gap-y-2">
+                                <span className="text-lg font-bold">API Key</span>
+                                <div className="flex items-center w-full gap-x-4">
+                                    <div className="relative w-full">
+                                        <input type="text" value={apiKey} readOnly className="w-full px-6 py-3 text-sm transition-all text-[#2E2C34] duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed" />
+                                        {!apiKeyUsed && (
+                                            <button className="absolute inset-y-0 bottom-0 right-0 flex items-center px-4 text-[#2E2C34]">
+                                                <CopyToClipboard onCopy={() => { toast.success('API Key copied successfully!') }} text={apiKey}>
+                                                    <LuCopy className="cursor-pointer" color='#000' size={16} />
+                                                </CopyToClipboard>
+                                            </button>
+                                        )}
+                                    </div>
+                                    {!apiKeyUsed && (
+                                        <button onClick={FetchAPIKey} className="items-center px-10 flex py-2 md:py-[10px] border border-[#2E2C34] rounded-lg">
+                                            Reveal
+                                        </button>
+                                    )}
+                                    <button onClick={HandleDeleteAPIKey} className="items-center px-9 flex py-2 md:py-[10px] border border-red-500 text-red-500 rounded-lg">
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="flex flex-col w-full my-2 gap-y-1">
+                                <span className='text-lg font-bold'>Set Expiration Date</span>
+                                <div className="flex items-center w-full gap-x-4">
+                                    <input type="date" value={expirationDate} onChange={(e) => setExpirationDate(e.target.value)} className="w-full px-6 py-3 text-sm transition-all text-[#2E2C34] duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed" />
+                                    <button onClick={HandleSetExpirationDate} disabled={isLoading} className={`items-center px-10 flex py-2 md:py-[10px] border border-[#2E2C34] rounded-lg  ${isLoading ? ' cursor-wait' : ' cursor-pointer'}`}>
+                                        Apply
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="flex justify-end w-full mt-20 md:mt-24">
+                                <button onClick={HandleGenerateAPIKey} disabled={isLoading} className={` justify-center flex items-center px-8 py-4 text-sm text-white transition-all bg-[#2E2C34] border border-[#2E2C34] rounded-md sm:py-3 disabled:opacity-50 disabled:cursor-not-allowed hover:text-[#2E2C34] hover:bg-transparent ${isLoading ? ' cursor-wait' : ' cursor-pointer'}`} >
+                                    Generate New API Key
+                                </button>
+                            </div>
+                            <div className="flex flex-col items-start mt-12 gap-y-4">
+                                <span className="flex items-center text-base gap-x-3">
+                                    <LuBadgeInfo color='#000' size={16} />
+                                    Be sure to copy your API Key immediately, as it will be hidden after 60 seconds.
+                                </span>
+                                <span className="flex items-center text-base gap-x-3">
+                                    <LuBadgeInfo color='#000' size={16} />
+                                    Once an API Key is revealed after generation, it cannot be shown again due to security reasons.
+                                </span>
+                                <span className="flex items-center text-base gap-x-3">
+                                    <LuBadgeInfo color='#000' size={16} />
+                                    After setting an API Key's expiration date, it will no longer be valid for fetching data beyond that date.
+                                </span>
+                            </div>
+
+                        </div>
                     </div>
                 }
                 {tab === "Accessibility" &&
@@ -248,7 +389,7 @@ const SettingsPage = () => {
                     </div>
                 }
             </div>
-        </div>
+        </div >
     )
 }
 
