@@ -13,7 +13,7 @@ const StatusPage = () => {
     useEffect(() => {
         const fetchUptimeData = async () => {
             try {
-                const response = await axios.post(`http://localhost:9999/v1/Service/GetStatus`);
+                const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/v1/Service/GetStatus`);
                 setUptimeData(response.data.data);
             } catch (error) {
                 console.error('Error fetching uptime data:', error);
