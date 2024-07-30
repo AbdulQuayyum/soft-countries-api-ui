@@ -10,6 +10,7 @@ const ResourcesPage = lazy(() => import('../Views/General/Resources'));
 const FAQPage = lazy(() => import('../Views/General/FAQ'));
 const PricingPage = lazy(() => import('../Views/General/Pricing'));
 const ContactUsPage = lazy(() => import('../Views/General/ContactUs'));
+const StatusPage = lazy(() => import('../Views/General/Status'));
 
 const DashboardPage = lazy(() => import('../Views/Dashboard/Home'));
 const SettingsPage = lazy(() => import('../Views/Dashboard/Settings'));
@@ -28,6 +29,7 @@ function MainRoutes() {
                     <Route path="FAQ" element={UseSuspense(FAQPage)()} />
                     <Route path="Pricing" element={UseSuspense(PricingPage)()} />
                     <Route path="ContactUs" element={UseSuspense(ContactUsPage)()} />
+                    <Route path="Status" element={UseSuspense(StatusPage)()} />
                     <Route path="*" element={UseSuspense(PageNotFoundPage)()} />
                 </Route>
                 <Route element={<ProtectedLayout />} errorElement={UseSuspense(ErrorPage)()}>

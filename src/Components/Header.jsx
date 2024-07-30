@@ -62,7 +62,7 @@ const Header = ({ setShowModal }) => {
             <div className="items-center hidden gap-2 md:flex gap-x-12">
                 <div className="relative flex items-center justify-start w-full py-0 m-0 gap-x-12">
                     <span ref={underlineRef} className="absolute bottom-0 h-[2px] -mb-[2px] bg-black transition-all duration-300" style={{ left: 0, width: 0 }}></span>
-                    {['/Resources', '/Pricing', '/FAQ', '/ContactUs'].map((path, index) => (
+                    {['/Resources', '/Pricing', '/FAQ', '/Status', '/ContactUs'].map((path, index) => (
                         <Link
                             key={path}
                             ref={el => tabsRef.current[index] = el}
@@ -98,6 +98,7 @@ const Header = ({ setShowModal }) => {
                         <Link to="/Resources" className={`nav-link ${isActive('/Resources')}`}>Resources</Link>
                         <Link to="/Pricing" className={`nav-link ${isActive('/Pricing')}`}>Pricing</Link>
                         <Link to="/FAQ" className={`nav-link ${isActive('/FAQ')}`}>FAQ</Link>
+                        <Link to="/Status" className={`nav-link ${isActive('/FAQ')}`}>FAQ</Link>
                         <Link to="/ContactUs" className={`nav-link ${isActive('/ContactUs')}`}>Contact Us</Link>
                     </div>
                     {user ? (
