@@ -27,7 +27,7 @@ export default function GeneralLayout() {
   }, [showModal]);
 
   return (
-    <>
+    <div className="flex items-center justify-center w-full">
       <ScrollToTop />
       <div className="layout">
         <Header setShowModal={setShowModal} />
@@ -43,6 +43,6 @@ export default function GeneralLayout() {
           <AuthModal prop="login" setShowModal={setShowModal} />
         </div>
       )}
-    </>
+    </div>
   );
 }

@@ -65,16 +65,24 @@ const ProtectedLayout = () => {
   }
 
   return (
-    <div className='flex flex-row items-start w-full'>
-      <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
-      <main className="main-container">
-        <DashboardHeader setShowSidebar={setShowSidebar} user={userInfo} forceRefetch={forceRefetch} />
-        {loading && <div className="container flex items-center justify-center p-10"><TbLoader3 size={24} className="animate-spin" /> </div>}
-        {error && <div className="container flex items-center justify-center p-10">{error}</div>}
-        {userInfo && (
-          <Outlet context={{ userInfo, forceRefetch }} />
-        )}
-      </main>
+    <div className="flex items-center justify-center w-full">
+      <div className="layout">
+        <div className='flex w-full h-screen gap-8 overflow-hidden'>
+          <div className='flex-shrink-0'>
+            <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
+          </div>
+          <div className="flex flex-col items-center flex-1 overflow-hidden">
+            <DashboardHeader setShowSidebar={setShowSidebar} user={userInfo} forceRefetch={forceRefetch} />
+            <main className="flex-1 overflow-auto main-container">
+              {loading && <div className="container flex items-center justify-center p-10"><TbLoader3 size={24} className="animate-spin" /> </div>}
+              {error && <div className="container flex items-center justify-center p-10">{error}</div>}
+              {userInfo && (
+                <Outlet context={{ userInfo, forceRefetch }} />
+              )}
+            </main>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
