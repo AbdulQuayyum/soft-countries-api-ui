@@ -60,7 +60,7 @@ const DashboardHeader = ({ setShowSidebar, user, forceRefetch }) => {
 
     return (
         <nav className={`dashboard-header-container ${user?.mode === "live" ? " !border-b-2 !border-b-green-500" : ""}`}>
-            <div className="block lg:invisible" onClick={() => { HandleToggleSidebar() }}>
+            <div className="block cursor-pointer lg:invisible" onClick={() => { HandleToggleSidebar() }}>
                 <LuAlignLeft size={20} />
             </div>
             <div className="flex flex-row items-center gap-x-4">

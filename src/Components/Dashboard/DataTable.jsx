@@ -96,7 +96,10 @@ const Datatable = ({ data }) => {
         }
     });
 
-    const currentData = sortedData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    // Reverse the sortedData array
+    const reversedData = [...sortedData].reverse();
+
+    const currentData = reversedData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
     const isFilterActive = filterIndex !== -1 && filterIndex !== 4;
     const isSearchActive = searchTerm !== "";
