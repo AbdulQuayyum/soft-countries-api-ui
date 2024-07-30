@@ -12,7 +12,10 @@ const Header = ({ setShowModal }) => {
     const location = useLocation();
     const user = authState.user;
     const [toggleMenu, setToggleMenu] = useState(false);
+    const [activeTab, setActiveTab] = useState('/');
     const dropdownRef = useRef(null);
+    const underlineRef = useRef(null);
+    const tabsRef = useRef([]);
 
     const handleClickOutside = (event) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -30,6 +33,14 @@ const Header = ({ setShowModal }) => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [toggleMenu]);
+
+    useEffect(() => {
+        const activeTabRef = tabsRef.current.find(t => t.getAttribute('data-tab') === activeTab);
+        if (activeTabRef && underlineRef.current) {
+            underlineRef.current.style.width = `${activeTabRef.offsetWidth}px`;
+            underlineRef.current.style.left = `${activeTabRef.offsetLeft}px`;
+        }
+    }, [activeTab]);
 
     const HandleShowModal = () => {
         setToggleMenu(false);
@@ -49,11 +60,19 @@ const Header = ({ setShowModal }) => {
                 <img src={assets.logoBlack} alt="Logo" className="object-contain w-auto h-10" />
             </Link>
             <div className="items-center hidden gap-2 md:flex gap-x-12">
-                <Link to="/Resources" className={`nav-link ${isActive('/Resources')}`}>Resources</Link>
-                <Link to="/Pricing" className={`nav-link ${isActive('/Pricing')}`}>Pricing</Link>
-                <span className="py-4 border-r-[1px] border-[#2E2C34]"></span>
-                <Link to="/FAQ" className={`nav-link ${isActive('/FAQ')}`}>FAQ</Link>
-                <Link to="/ContactUs" className={`nav-link ${isActive('/ContactUs')}`}>Contact Us</Link>
+                <div className="relative flex items-center justify-start w-full py-0 m-0 gap-x-12">
+                    <span ref={underlineRef} className="absolute bottom-0 h-[2px] -mb-[2px] bg-black transition-all duration-300" style={{ left: 0, width: 0 }}></span>
+                    {['/Resources', '/Pricing', '/FAQ', '/ContactUs'].map((path, index) => (
+                        <Link
+                            key={path}
+                            ref={el => tabsRef.current[index] = el}
+                            data-tab={path}
+                            to={path}
+                            onClick={() => setActiveTab(path)}>
+                            {path.replace('/', '')}
+                        </Link>
+                    ))}
+                </div>
             </div>
             <div className="flex items-center gap-x-8">
                 {user ? (
