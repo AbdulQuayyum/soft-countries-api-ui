@@ -83,6 +83,7 @@ html {
     width: 100%;
     justify-content: space-between;
     padding: 16px;
+    max-width: 2560px;
     min-height: 100vh;
 }
 
@@ -370,6 +371,7 @@ html {
 /* Dashboard */
 
 .dashboard-header-container {
+    max-width: 1400px;
     align-items: center;
     display: flex;
     width: 100%;

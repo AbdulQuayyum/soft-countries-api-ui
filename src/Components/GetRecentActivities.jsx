@@ -52,7 +52,7 @@ const GetRecentActivities = ({ data }) => {
                     '/v1/User/GetUser/:username',
                     '/v1/User/GetUserActivities'
                 ].includes(activity.url);
-            }).sort(compareTimestamps).slice(0, 9);
+            }).sort(compareTimestamps).slice(0, 20);
 
             setFilteredActivities(filteredData);
             setLoading(false);

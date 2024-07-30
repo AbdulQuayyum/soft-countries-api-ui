@@ -156,7 +156,7 @@ const SettingsPage = () => {
             const { data } = await GetAPIKey({ username: userInfo.username });
             if (data.success) {
                 setApiKey(data.data);
-                setApiKeyUsed(true);
+                setApiKeyUsed(false);
                 toast.success('API Key fetched successfully.');
             } else {
                 setApiKeyUsed(false);
@@ -213,9 +213,9 @@ const SettingsPage = () => {
             setIsLoading(false);
         }
     };
-
+    
     return (
-        <div className='flex flex-col w-full px-4 mt-4 gap-y-6'>
+        <div className='flex flex-col w-full px-4 mt-4 md:px-0 gap-y-6'>
             <div>
                 <span className='text-2xl font-bold lg:text-4xl'>Settings Overview</span>
             </div>
@@ -328,8 +328,20 @@ const SettingsPage = () => {
                             <div className="flex flex-col w-full my-2 gap-y-1">
                                 <span className='text-lg font-bold'>Set Expiration Date</span>
                                 <div className="flex items-center w-full gap-x-4">
-                                    <input type="date" value={expirationDate} onChange={(e) => setExpirationDate(e.target.value)} className="w-full px-6 py-3 text-sm transition-all text-[#2E2C34] duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed" />
-                                    <button onClick={HandleSetExpirationDate} disabled={isLoading} className={`items-center px-10 flex py-2 md:py-[10px] border border-[#2E2C34] rounded-lg  ${isLoading ? ' cursor-wait' : ' cursor-pointer'}`}>
+                                    <div className="relative w-full">
+                                        <input
+                                            type="date"
+                                            value={expirationDate}
+                                            onChange={(e) => setExpirationDate(e.target.value || null)}
+                                            className="w-full px-6 py-3 text-sm transition-all text-[#2E2C34] duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed appearance-none"
+                                        />
+                                        <div className="absolute inset-0 cursor-pointer" onClick={() => document.querySelector('input[type="date"]').showPicker()}></div>
+                                    </div>
+                                    <button
+                                        onClick={HandleSetExpirationDate}
+                                        disabled={isLoading}
+                                        className={`items-center px-10 flex py-2 md:py-[10px] border border-[#2E2C34] rounded-lg  ${isLoading ? ' cursor-wait' : ' cursor-pointer'}`}
+                                    >
                                         Apply
                                     </button>
                                 </div>
