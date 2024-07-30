@@ -8,52 +8,69 @@ const GetRecentActivities = ({ data }) => {
     const [filteredActivities, setFilteredActivities] = useState([]);
 
     const mapUrlToText = (url) => {
-        switch (url) {
-            case '/v1/Auth/CreateAccount':
-                return 'Created a new account';
-            case '/v1/Auth/SignIn':
-                return 'Signed in to the account';
-            case '/v1/Auth/ForgotPassword':
-                return 'Initiated password reset';
-            case '/v1/Auth/ResetPassword':
-                return 'Reset the account password';
-            case '/v1/Auth/VerifyEmail':
-                return 'Verified the email address';
-            case '/v1/Service/GetService/:type':
-                return 'Retrieved service data with rate limiting';
-            case '/v1/User/GenerateAPIKeys':
-                return 'Generated a new API key';
-            case '/v1/User/GetAPIKey':
-                return 'Retrieved the API key';
-            case '/v1/User/DeleteAPIKey':
-                return 'Deleted the API key';
-            case '/v1/User/SetAPIKeyExpirationDate':
-                return 'Set the expiration date for the API key';
-            case '/v1/User/SwitchMode':
-                return 'Switched between test and live modes';
-            case '/v1/User/AddWebsite':
-                return 'Added a new website';
-            case '/v1/User/RemoveWebsite':
-                return 'Removed a website';
-            case '/v1/Auth/ChangePassword':
-                return 'Changed the password';
-            default:
-                return url;
+        const urlMappings = {
+            '/v1/Auth/CreateAccount': 'Created a new account',
+            '/v1/Auth/SignIn': 'Signed in to the account',
+            '/v1/Auth/ForgotPassword': 'Initiated password reset',
+            '/v1/Auth/ResetPassword': 'Reset the account password',
+            '/v1/Auth/VerifyEmail': 'Verified the email address',
+            '/v1/Service/GetService/:type': 'Retrieved service data with rate limiting',
+            '/v1/User/GenerateAPIKeys': 'Generated a new API key',
+            '/v1/User/GetAPIKey': 'Retrieved the API key',
+            '/v1/User/DeleteAPIKey': 'Deleted the API key',
+            '/v1/User/SetAPIKeyExpirationDate': 'Set the expiration date for the API key',
+            '/v1/User/SwitchMode': 'Switched between test and live modes',
+            '/v1/User/AddWebsite': 'Added a new website',
+            '/v1/User/RemoveWebsite': 'Removed a website',
+            '/v1/Auth/ChangePassword': 'Changed the password'
+        };
+
+        const dynamicSegments = [
+            '/v1/Service/GetService/',
+            '/v1/User/GetUser/',
+            '/v1/User/GetUserActivities'
+        ];
+
+        if (urlMappings[url]) {
+            return urlMappings[url];
         }
+
+        for (const segment of dynamicSegments) {
+            if (url.startsWith(segment)) {
+                return urlMappings[`${segment}:type`] || url;
+            }
+        }
+
+        return url;
+    };
+
+    const excludeUrls = [
+        '/v1/User/GetCalls',
+        '/v1/User/GetCallsCount',
+        '/v1/User/GetUserTransactions',
+        '/v1/User/GetUser/:username',
+        '/v1/User/GetUserActivities',
+        '/v1/Service/GetService/:type'
+    ];
+
+    const filterAndMapActivities = (activities) => {
+        return activities.filter(activity => {
+            return !excludeUrls.some(excludeUrl => {
+                if (excludeUrl.includes(':')) {
+                    const [base] = excludeUrl.split(':');
+                    return activity.url.startsWith(base);
+                }
+                return activity.url === excludeUrl;
+            });
+        }).sort(compareTimestamps).slice(0, 20).map(activity => ({
+            ...activity,
+            description: mapUrlToText(activity.url)
+        }));
     };
 
     useEffect(() => {
         setTimeout(() => {
-            const filteredData = data.filter(activity => {
-                return ![
-                    '/v1/User/GetCalls',
-                    '/v1/User/GetCallsCount',
-                    '/v1/User/GetUserTransactions',
-                    '/v1/User/GetUser/:username',
-                    '/v1/User/GetUserActivities'
-                ].includes(activity.url);
-            }).sort(compareTimestamps).slice(0, 20);
-
+            const filteredData = filterAndMapActivities(data);
             setFilteredActivities(filteredData);
             setLoading(false);
         }, 1000);
