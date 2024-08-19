@@ -32,6 +32,9 @@ export const countryDatasetsv1 = {
   "countries-elevation": {
     description: "Provides a dataset of countries and their average elevation above sea level (in metres)."
   },
+  "countries-emergency-codes": {
+    description: " Provides a dataset of countries and their emergency calling codes."
+  },
   "countries-geo-coordinates": {
     description: "Provides a dataset of countries and their geographical coordinates."
   },
@@ -171,6 +174,24 @@ export const responseData = {
   "countries-elevation": {
     country: "Angola",
     elevation: 1112
+  },
+  "countries-emergency-codes": {
+    Country: {
+      Name: "Nigeria",
+      ISOCode: "NG",
+      ISONumeric: "566"
+    },
+    Ambulance: {
+      All: ["112"]
+    },
+    Fire: {
+      All: ["112"]
+    },
+    Police: { All: [112] },
+    Dispatch: { All: [null] },
+    Member_112: false,
+    LocalOnly: false,
+    Notes: null
   },
   "countries-geo-coordinates": {
     country: "American Samoa",
