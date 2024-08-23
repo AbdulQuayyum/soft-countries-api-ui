@@ -38,7 +38,7 @@ const ResourcesPage = () => {
         <section className="flex flex-col items-center justify-center w-full py-12 gap-y-12">
             <div className="flex flex-col items-center justify-center gap-y-2 lg:gap-y-4 ">
                 <span className="text-4xl lg:text-6xl text-center font-extrabold text-[#2E2C34]">Resources Page!</span>
-                <span className="text-xl text-[#667085] font-light text-center">This page contains resources that would help you understand out API Service better</span>
+                <span className="text-xl text-[#667085] font-light text-center">This page contains resources that would help you understand our Software as a Service better</span>
             </div>
             <div className="container flex flex-col items-start justify-between pt-4 gap-y-20 lg:flex-row">
                 <div className="max-w-[278px] min-w-[250px] hidden lg:block w-full sticky z-10 top-40 rounded-xl h-auto ">
@@ -80,7 +80,7 @@ const ResourcesPage = () => {
                         <h3 className='heading'>Welcome to the Soft Countries API!</h3>
                         <div className='flex flex-col gap-y-2'>
                             <div className="subsection">
-                                <span>The Soft Countries API is a powerful and flexible API service that provides comprehensive datasets related to countries. You can access information such as flags, codes, capitals, continents, and more.</span>
+                                <span>The Soft Countries API is a powerful and flexible Software as a Service that provides comprehensive datasets related to countries. You can access information such as flags, codes, capitals, continents, and more.</span>
                             </div>
                             <div className="subsection">
                                 <span>This page should provide all the necessary information to get started with the Soft Countries API and make the most out of its functionalities.</span>

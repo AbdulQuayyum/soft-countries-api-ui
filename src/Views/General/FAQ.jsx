@@ -182,7 +182,7 @@ const FAQPage = () => {
         <section className="flex flex-col items-center justify-center w-full max-w-3xl py-12 gap-y-10">
             <div className="flex flex-col items-center justify-center gap-y-2 lg:gap-y-4 ">
                 <span className="text-4xl lg:text-6xl text-center font-extrabold text-[#2E2C34]">FAQ Page!</span>
-                <span className="text-xl text-[#667085] font-light text-center">This page contains frequently asked questions that would help you understand out API Service better</span>
+                <span className="text-xl text-[#667085] font-light text-center">This page contains frequently asked questions that would help you understand our Software as a Service better</span>
             </div>
             <div className="flex flex-col w-full gap-y-12">
                 {accordions.map((section) => (
