@@ -22,23 +22,12 @@ const UsersManagementPage = () => {
         const fetchData = async () => {
             try {
                 const response = await GetAllUsers()
-                console.log(response.data.data)
                 setData(response.data.data)
             } catch (error) {
                 console.error("Error fetching all users", error);
             }
         }
-        const fetchUserDetail = async () => {
-            try {
-                const response = await GetUserDetails("669188cfc8e47120eb2b0b35")
-                console.log(response.data.data)
-                // setData(response.data.data)
-            } catch (error) {
-                console.error("Error fetching all users", error);
-            }
-        }
         fetchData()
-        fetchUserDetail()
         setIsLoading(false);
     }, [])
 
