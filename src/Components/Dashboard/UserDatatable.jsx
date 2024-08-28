@@ -13,19 +13,19 @@ const UserDatatable = ({ data }) => {
     const totalPages = Math.ceil(data.length / itemsPerPage);
 
     const filters = [
-        'timestamp',
-        'url',
-        'mode',
-        'success',
-        'serviceName'
+        // 'createdAt',
+        'username',
+        'email',
+        'accountType',
+        'suspended'
     ];
 
     const filterLabels = {
-        'timestamp': 'Date',
-        'url': 'URL',
-        'mode': 'Mode',
-        'success': 'Status',
-        'serviceName': 'Service Called'
+        // 'createdAt': 'Date Created',
+        'email': 'Email Address',
+        'username': 'Username',
+        'accountType': 'Subscription',
+        'suspended': 'Status',
     };
 
     const handlePageChange = (page) => {
@@ -40,17 +40,8 @@ const UserDatatable = ({ data }) => {
     };
 
     const handleFilterChange = () => {
-        setFilterIndex((filterIndex + 1) % (filters.length + 1)); 
+        setFilterIndex((filterIndex + 1) % (filters.length + 1));
         setCurrentPage(1);
-    };
-
-    const formatUrlDescription = (url) => {
-        const prefixToRemove = '/v1/Service/GetService/';
-        let formattedUrl = url.replace(prefixToRemove, '');
-        formattedUrl = formattedUrl
-            .replace(/-/g, ' ')
-            .replace(/\b\w/g, char => char.toUpperCase());
-        return formattedUrl;
     };
 
     const filterByField = (item) => {
@@ -58,46 +49,46 @@ const UserDatatable = ({ data }) => {
 
         if (filterIndex !== -1 && filterIndex !== 4) {
             const field = filters[filterIndex];
-            
+
             switch (field) {
-                case 'timestamp':
-                    return item.timestamp.toLowerCase().includes(term);
-                case 'url':
-                    return item.url.toLowerCase().includes(term);
-                case 'mode':
-                    return item.mode.toLowerCase().includes(term);
-                case 'success':
-                    return item.success.toString().toLowerCase().includes(term);
-                case 'serviceName':
-                    return formatUrlDescription(item.url).toLowerCase().includes(term);
+                // case 'createdAt':
+                //     return item.createdAt.toLowerCase().includes(term);
+                case 'username':
+                    return item.username.toLowerCase().includes(term);
+                case 'email':
+                    return item.email.toLowerCase().includes(term);
+                case 'accountType':
+                    return item.accountType.toLowerCase().includes(term);
+                case 'suspended':
+                    return item.suspended.toString().toLowerCase().includes(term);
                 default:
                     return true;
             }
         }
-        
-        return item.timestamp.toLowerCase().includes(term) ||
-               item.url.toLowerCase().includes(term) ||
-               item.mode.toLowerCase().includes(term) ||
-               item.success.toString().toLowerCase().includes(term) ||
-               formatUrlDescription(item.url).toLowerCase().includes(term);
+
+        return item.username.toLowerCase().includes(term) ||
+            item.email.toLowerCase().includes(term) ||
+            item.accountType.toLowerCase().includes(term) ||
+            item.suspended.toString.toLowerCase().includes(term)
+        // item.createdAt.toLowerCase().includes(term) ||
     };
 
     const filteredData = data.filter(filterByField);
 
     const sortedData = filteredData.sort((a, b) => {
-        if (filterIndex === -1 || filterIndex === 4) return 0; 
+        if (filterIndex === -1 || filterIndex === 4) return 0;
 
         switch (filters[filterIndex]) {
-            case 'url':
-                return a.url.localeCompare(b.url);
-            case 'mode':
-                return a.mode.localeCompare(b.mode);
-            case 'timestamp':
-                return compareTimestamps(a, b);
-            case 'success':
-                return (a.success === true ? 1 : 0) - (b.success === true ? 1 : 0);
-            case 'serviceName':
-                return formatUrlDescription(a.url).localeCompare(formatUrlDescription(b.url));
+            case 'username':
+                return a.username.localeCompare(b.username);
+            case 'email':
+                return a.email.localeCompare(b.email);
+            // case 'createdAt':
+            //     return compareTimestamps(a, b);
+            case 'accountType':
+                return a.accountType.localeCompare(b.accountType);
+            case 'suspended':
+                return (a.suspended === true ? 1 : 0) - (b.suspended === true ? 1 : 0);
             default:
                 return 0;
         }
@@ -140,11 +131,11 @@ const UserDatatable = ({ data }) => {
                 <table className='min-w-max my-3 lg:min-w-0 w-full table-auto border border-[#E3E6ED] rounded'>
                     <thead>
                         <tr className='grid w-full grid-cols-12 bg-[#F4F5F6]'>
-                            <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-2'>Name</td>
-                            <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-2'>Email</td>
-                            <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-2'>Plan</td>
+                            <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-2'>Username</td>
+                            <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-3'>Email</td>
+                            <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-1'>Plan</td>
+                            <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-2'>Status</td>
                             <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-3'>Date Created</td>
-                            <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-2'>Calls</td>
                             <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-1'></td>
                         </tr>
                     </thead>
@@ -152,20 +143,23 @@ const UserDatatable = ({ data }) => {
                         {currentData.map((item, index) => (
                             <tr key={index} className='grid w-full grid-cols-12 border-b border-b-[#E3E6ED]'>
                                 <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-2'>
-                                    {formatUrlDescription(item.url)}
+                                    {item.username}
+                                </td>
+                                <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-3'>
+                                    {item.email}
+                                </td>
+                                <td className='text-sm capitalize font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-1'>
+                                    {item.accountType}
                                 </td>
                                 <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-2'>
-                                    {item.url}
+                                    <span className={`text-sm font-[400] items-center w-fit flex py-1 rounded-2xl gap-x-2 ${item.suspended ? " text-[#9E1801]" : " text-[#22c55e] "}`} >
+                                        <span className={` flex h-2 w-2 rounded-full ${item.suspended ? " bg-[#9E1801]" : " bg-[#22c55e]"}`}></span>
+                                        {item.suspended ? "Suspended" : "Active"}
+                                    </span>
                                 </td>
-                                <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-2'>
-                                    {item.mode}
-                                </td>
-                                <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-3'>{item.timestamp}</td>
-                                <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-2'>
-                                    {item.calls}
-                                </td>
+                                <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-3'>{item.createdAt}</td>
                                 <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-1'>
-                                 <LuEye />
+                                    <LuEye />
                                 </td>
                             </tr>
                         ))}

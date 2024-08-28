@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: `${import.meta.env.VITE_SERVER_URL}/v1/Admin`,
+    baseURL: `http://localhost:9999/v1/Admin`,
     headers: { 'Content-Type': 'application/json' }
 });
 
@@ -27,3 +27,4 @@ api.interceptors.response.use(
 );
 
 export const GetAllUsers = () => api.post('/AllUsers')
+export const GetUserDetails = (UserID) => api.post(`/UserDetails/${UserID}`)
