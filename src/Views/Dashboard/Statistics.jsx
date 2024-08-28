@@ -5,7 +5,7 @@ import { Scatter } from 'react-chartjs-2';
 import { Chart as ChartJS, LinearScale, PointElement, LineElement, Tooltip, Legend } from 'chart.js';
 
 import { DocumentTitle } from "../../Utilities/DocumentTitle";
-import { GetCalls, GetCallsCount, GetUserActivities } from "../../APIs/user.api";
+import { GetCalls, GetCallsCount } from "../../APIs/user.api";
 import { Datatable } from "../../Components/Index";
 import assets from "../../Assets/Index"
 
