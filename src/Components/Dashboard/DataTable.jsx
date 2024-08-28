@@ -15,6 +15,7 @@ const Datatable = ({ data }) => {
     const filters = [
         'timestamp',
         'url',
+        'mode',
         'success',
         'serviceName'
     ];
@@ -22,6 +23,7 @@ const Datatable = ({ data }) => {
     const filterLabels = {
         'timestamp': 'Date',
         'url': 'URL',
+        'mode': 'Mode',
         'success': 'Status',
         'serviceName': 'Service Called'
     };
@@ -62,6 +64,8 @@ const Datatable = ({ data }) => {
                     return item.timestamp.toLowerCase().includes(term);
                 case 'url':
                     return item.url.toLowerCase().includes(term);
+                case 'mode':
+                    return item.mode.toLowerCase().includes(term);
                 case 'success':
                     return item.success.toString().toLowerCase().includes(term);
                 case 'serviceName':
@@ -73,6 +77,7 @@ const Datatable = ({ data }) => {
         
         return item.timestamp.toLowerCase().includes(term) ||
                item.url.toLowerCase().includes(term) ||
+               item.mode.toLowerCase().includes(term) ||
                item.success.toString().toLowerCase().includes(term) ||
                formatUrlDescription(item.url).toLowerCase().includes(term);
     };
@@ -85,6 +90,8 @@ const Datatable = ({ data }) => {
         switch (filters[filterIndex]) {
             case 'url':
                 return a.url.localeCompare(b.url);
+            case 'mode':
+                return a.mode.localeCompare(b.mode);
             case 'timestamp':
                 return compareTimestamps(a, b);
             case 'success':
@@ -133,22 +140,26 @@ const Datatable = ({ data }) => {
                 <table className='min-w-max my-3 lg:min-w-0 w-full table-auto border border-[#E3E6ED] rounded'>
                     <thead>
                         <tr className='grid w-full grid-cols-12 bg-[#F4F5F6]'>
-                            <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-3'>Service Called</td>
+                            <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-2'>Service Called</td>
                             <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-3'>URL</td>
-                            <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-4'>Timestamp</td>
+                            <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-2'>Mode</td>
+                            <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-3'>Timestamp</td>
                             <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-2'>Status</td>
                         </tr>
                     </thead>
                     <tbody className='w-full'>
                         {currentData.map((item, index) => (
                             <tr key={index} className='grid w-full grid-cols-12 border-b border-b-[#E3E6ED]'>
-                                <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-3'>
+                                <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-2'>
                                     {formatUrlDescription(item.url)}
                                 </td>
                                 <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-3'>
                                     {item.url}
                                 </td>
-                                <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-4'>{item.timestamp}</td>
+                                <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-2'>
+                                    {item.mode}
+                                </td>
+                                <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-3'>{item.timestamp}</td>
                                 <td className='col-span-2'>
                                     <span className={`text-sm font-[400] items-center w-fit flex py-1 rounded-2xl px-4 gap-x-2 ${item.success ? "text-[#22c55e]" : " text-[#9E1801] "}`} >
                                         <span className={` flex h-2 w-2 rounded-full ${item.success ? "bg-[#22c55e]" : " bg-[#9E1801]"}`}></span>
