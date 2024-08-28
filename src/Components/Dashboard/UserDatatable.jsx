@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
-import { LuListFilter, LuEye } from "react-icons/lu";
+import { LuListFilter, LuExternalLink } from "react-icons/lu";
 
 import { compareTimestamps } from '../../Utilities/Utilities';
 
 const UserDatatable = ({ data }) => {
+    const navigate = useNavigate()
     const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
     const [filterIndex, setFilterIndex] = useState(-1);
@@ -159,7 +161,9 @@ const UserDatatable = ({ data }) => {
                                 </td>
                                 <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-3'>{item.createdAt}</td>
                                 <td className='text-sm font-[400] text-[#232A30] items-start flex py-3 px-6 col-span-1'>
-                                    <LuEye />
+                                    <span className='cursor-pointer ' onClick={() => { navigate(`/UserDetails/${item._id}`) }}>
+                                        <LuExternalLink size={20} />
+                                    </span>
                                 </td>
                             </tr>
                         ))}

@@ -16,6 +16,7 @@ const DashboardPage = lazy(() => import('../Views/Dashboard/Home'));
 const SettingsPage = lazy(() => import('../Views/Dashboard/Settings'));
 const StatisticsPage = lazy(() => import('../Views/Dashboard/Statistics'));
 const UsersManagementPage = lazy(() => import('../Views/Dashboard/UsersManagement'));
+const UserDetailsPage = lazy(() => import('../Views/Dashboard/UserDetails'));
 
 const ErrorPage = lazy(() => import('../Views/General/ErrorPage'));
 const PageNotFoundPage = lazy(() => import('../Views/General/PageNotFound'));
@@ -38,6 +39,7 @@ function MainRoutes() {
                     <Route path="/Settings" element={UseSuspense(SettingsPage)()} />
                     <Route path="/Statistics" element={UseSuspense(StatisticsPage)()} />
                     <Route path="/UsersManagement" element={UseSuspense(UsersManagementPage)()} />
+                    <Route path="/UserDetails/:UserID" element={UseSuspense(UserDetailsPage)()} />
                 </Route>
             </>
         )
