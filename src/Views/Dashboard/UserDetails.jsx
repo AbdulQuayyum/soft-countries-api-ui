@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useOutletContext, useNavigate, useParams } from 'react-router-dom';
 import { TbLoader3 } from 'react-icons/tb';
-import toast from 'react-hot-toast';
 
 import { DocumentTitle } from "../../Utilities/DocumentTitle"
 import { GetUserDetails, SuspendUser } from "../../APIs/admin.api";
@@ -9,7 +8,7 @@ import { GetUserDetails, SuspendUser } from "../../APIs/admin.api";
 const UserDetailsPage = () => {
     DocumentTitle("Soft Countries API || User Detail Page")
     const { UserID } = useParams()
-    const { userInfo } = useOutletContext();
+    const { userInfo, forceRefetch } = useOutletContext();
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const [isSuspended, setIsSuspended] = useState(false);
@@ -39,18 +38,16 @@ const UserDetailsPage = () => {
         } else {
             setIsSuspended(false);
         }
-    }, [data, isSuspended]);
+    }, [data, setIsSuspended]);
 
-    const HandleSuspend = async () => {
+    const HandleSuspend = () => {
         setIsSuspended((prev) => !prev);
-        try {
-            await SuspendUser(UserID);
-        } catch (error) {
-            setIsSuspended((prev) => !prev);
-            console.error('Error suspending user:', error);
-        }
+        SuspendUser(UserID);
         setTimeout(() => {
             GetUserDetails(UserID)
+        }, 2000);
+        setTimeout(() => {
+            forceRefetch()
         }, 5000);
     }
 
