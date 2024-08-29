@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useOutletContext, useNavigate, useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import { TbLoader3 } from 'react-icons/tb';
 
 import { DocumentTitle } from "../../Utilities/DocumentTitle"
-import { GetUserDetails, SuspendUser } from "../../APIs/admin.api";
+import { GetUserDetails, SuspendUser, RemoveUserWebsite } from "../../APIs/admin.api";
 
 const UserDetailsPage = () => {
     DocumentTitle("Soft Countries API || User Detail Page")
@@ -14,20 +15,21 @@ const UserDetailsPage = () => {
     const [isSuspended, setIsSuspended] = useState(false);
     const [data, setData] = useState([]);
 
+    const fetchData = async () => {
+        try {
+            const response = await GetUserDetails(UserID)
+            setData(response.data.data)
+        } catch (error) {
+            console.error("Error fetching all users", error);
+        }
+    }
+
     useEffect(() => {
         if (!userInfo.isAdmin) {
             navigate('/404');
             return;
         }
         setIsLoading(true);
-        const fetchData = async () => {
-            try {
-                const response = await GetUserDetails(UserID)
-                setData(response.data.data)
-            } catch (error) {
-                console.error("Error fetching all users", error);
-            }
-        }
         fetchData()
         setIsLoading(false);
     }, [])
@@ -40,16 +42,30 @@ const UserDetailsPage = () => {
         }
     }, [data, setIsSuspended]);
 
-    const HandleSuspend = () => {
+    const HandleSuspend = async () => {
         setIsSuspended((prev) => !prev);
-        SuspendUser(UserID);
-        setTimeout(() => {
-            GetUserDetails(UserID)
-        }, 2000);
-        setTimeout(() => {
+        try {
+            await SuspendUser(UserID);
+            toast.success('User activeness changed successfully.');
+            fetchData()
             forceRefetch()
-        }, 5000);
+        } catch (error) {
+            console.error('Error changing user activeness:', error);
+            toast.error('Failed to changing user activeness,' + error.response.data.error);
+        }
     }
+
+    const HandleRemoveWebsite = async (websiteToRemove) => {
+        const data = { UserID: UserID, website: websiteToRemove };
+        try {
+            await RemoveUserWebsite(data);
+            toast.success('Website removed successfully.');
+            fetchData()
+        } catch (error) {
+            console.error('Error removing website:', error);
+            toast.error('Failed to add website,' + error.response.data.error);
+        }
+    };
 
     const testFailures = data?.calls?.filter(call => call?.success === false && call?.mode === 'test');
     const testSuccesses = data?.calls?.filter(call => call?.success === true && call?.mode === 'test');
@@ -64,41 +80,43 @@ const UserDetailsPage = () => {
             </div>
             <div className="flex flex-col md:flex-row w-full justify-between gap-8 items-center md:items-stretch">
                 <div className='flex flex-1 flex-col w-full p-6 bg-white rounded-lg shadow-lg gap-y-4'>
+                    <span className='text-2xl font-bold lg:text-3xl'>User's Information</span>
                     <div className="flex w-full justify-between items-center gap-6">
-                        <span className="text-lg">User's username:</span>
+                        <span className="text-lg capitalize">username:</span>
                         <span className="text-lg font-bold">{data?.username}</span>
                     </div>
                     <div className="flex w-full justify-between items-center gap-6">
-                        <span className="text-lg">User's email:</span>
+                        <span className="text-lg capitalize">email:</span>
                         <span className="text-lg font-bold">{data?.email}</span>
                     </div>
                     <div className="flex w-full justify-between items-center gap-6">
-                        <span className="text-lg">User's plan:</span>
+                        <span className="text-lg capitalize">plan:</span>
                         <span className="text-lg font-bold capitalize">{data?.accountType}</span>
                     </div>
                     <div className="flex w-full justify-between items-center gap-6">
-                        <span className="text-lg">User's mode:</span>
+                        <span className="text-lg capitalize">mode:</span>
                         <span className="text-lg font-bold capitalize">{data?.mode}</span>
                     </div>
                     <div className="flex w-full justify-between items-center gap-6">
-                        <span className="text-lg">Is user an admin?</span>
+                        <span className="text-lg capitalize">Is an admin?</span>
                         <span className="text-lg font-bold">{data?.isAdmin ? "Yes" : "No"}</span>
                     </div>
                     <div className="flex w-full justify-between items-center gap-6">
-                        <span className="text-lg">Is user verified?</span>
+                        <span className="text-lg capitalize">Is user verified?</span>
                         <span className="text-lg font-bold">{data?.emailVerified ? "Yes" : "No"}</span>
                     </div>
                     <div className="flex w-full justify-between items-center gap-6">
-                        <span className="text-lg">User's subscription type:</span>
+                        <span className="text-lg capitalize"> subscription type:</span>
                         <span className="text-lg font-bold">{data?.subscriptionType ? data?.subscriptionType : "None"}</span>
                     </div>
                     <div className="flex w-full justify-between items-center gap-6">
-                        <span className="text-lg">User's subscription expiration date:</span>
+                        <span className="text-lg capitalize"> subscription expiration date:</span>
                         <span className="text-lg font-bold">{data?.subscriptionExpiration ? data?.subscriptionExpiration : "None"}</span>
                     </div>
                 </div>
                 <div className="flex flex-1 h-full flex-col w-full items-center gap-6">
                     <div className='flex flex-col w-full p-6 bg-white rounded-lg shadow-lg gap-y-4'>
+                        <span className='text-2xl font-bold lg:text-3xl'>User's Activeness</span>
                         <div className="flex items-center justify-between gap-4">
                             <span>Suspend User</span>
                             <label className="inline-flex items-center cursor-pointer">
@@ -107,8 +125,19 @@ const UserDetailsPage = () => {
                             </label>
                         </div>
                     </div>
+                    <div className='flex flex-col w-full p-6 bg-white rounded-lg shadow-lg gap-y-4'>
+                        <span className='text-2xl font-bold lg:text-3xl'>User's Website(s)</span>
+                        {data?.allowedWebsites?.map((website, index) => (
+                            <div key={index} className="flex items-center w-full gap-x-2">
+                                <input type="text" value={website} readOnly className="w-full px-6 py-3 text-sm transition-all text-[#2E2C34] duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed" />
+                                <button onClick={() => HandleRemoveWebsite(website)} className="items-center px-[16px] md:px-[26px] flex py-2 md:py-[10px] border border-red-500 text-red-500 rounded-lg" >
+                                    Remove
+                                </button>
+                            </div>
+                        ))}
+                    </div>
                     <div className='flex h-full flex-col w-full p-6 bg-white rounded-lg shadow-lg gap-y-4'>
-                        <span className='text-2xl font-bold lg:text-3xl'>Call Counts</span>
+                        <span className='text-2xl font-bold lg:text-3xl'>User's Call Counts</span>
                         <div className="flex w-full justify-between gap-4">
                             <div className="flex flex-col items-start gap-6">
                                 <span className="text-xl">Total</span>

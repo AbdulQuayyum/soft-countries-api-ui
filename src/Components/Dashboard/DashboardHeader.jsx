@@ -29,7 +29,6 @@ const DashboardHeader = ({ setShowSidebar, user, forceRefetch }) => {
         SwitchMode({ username: user?.username, mode: (user?.mode === 'test') ? 'live' : 'test' });
     };
 
-
     const HandleToggleMode = () => {
         setTestModeChecked((prev) => !prev);
         HandleSwitchMode()
