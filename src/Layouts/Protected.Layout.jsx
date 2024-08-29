@@ -67,7 +67,7 @@ const ProtectedLayout = () => {
   return (
     <div className="flex items-center justify-center w-full">
       <div className="layout">
-        <div className='flex w-full h-screen gap-8 overflow-hidden'>
+        <div className={`flex w-full h-screen overflow-hidden ${showSidebar ? " gap-x-8" : ""}`}>
           <div className='flex-shrink-0'>
             <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} isAdmin={userInfo?.isAdmin} />
           </div>

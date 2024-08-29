@@ -96,7 +96,7 @@ const StatisticsPage = () => {
     const isDataEmpty = !callCounts.testMode?.total && !callCounts.liveMode?.total;
 
     return (
-        <div className='flex flex-col w-full px-4 mt-4 md:px-0 gap-y-6'>
+        <div className='flex flex-col w-full mt-4 gap-y-6'>
             <span className='text-2xl font-bold lg:text-4xl'>Statistics Overview</span>
             {isLoading && <TbLoader3 size={24} className="animate-spin" />}
             {isDataEmpty && (

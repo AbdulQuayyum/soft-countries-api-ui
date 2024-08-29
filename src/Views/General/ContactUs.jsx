@@ -13,6 +13,7 @@ const ContactUsPage = () => {
         { category: "General Feedback" },
         { category: "Feature Requests" },
         { category: "Bug Reports" },
+        { category: "Integration Issues" },
         { category: "User Interface and Design" },
         { category: "Documentation and Resources" },
         { category: "Performance and Speed" },
@@ -21,7 +22,11 @@ const ContactUsPage = () => {
         { category: "Security and Compliance" },
         { category: "API Usage and Functionality" },
         { category: "Account Management" },
-        { category: "Miscellaneous" }
+        { category: "Miscellaneous" },
+        { category: "Legal and Privacy Concerns" },
+        { category: "Account Suspension Inquiries" },
+        { category: "Localization and Language Support " },
+        { category: "Community and Networking" }
     ]
 
     const SendEmail = () => {
