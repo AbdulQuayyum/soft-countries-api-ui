@@ -28,3 +28,4 @@ api.interceptors.response.use(
 
 export const GetAllUsers = () => api.post('/AllUsers')
 export const GetUserDetails = (UserID) => api.post(`/UserDetails/${UserID}`)
+export const SuspendUser = (UserID) => api.post(`/SuspendUser/${UserID}`)
