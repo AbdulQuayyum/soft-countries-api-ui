@@ -215,7 +215,7 @@ const SettingsPage = () => {
     };
     
     return (
-        <div className='flex flex-col w-full px-4 mt-4 md:px-0 gap-y-6'>
+        <div className='flex flex-col w-full mt-4 gap-y-6'>
             <div>
                 <span className='text-2xl font-bold lg:text-4xl'>Settings Overview</span>
             </div>
@@ -376,7 +376,7 @@ const SettingsPage = () => {
                             <span className="text-base">Your <span className="capitalize ">{userInfo?.accountType} </span>plan allows you to add up to {maxWebsites} website(s).</span>
                         </div>
                         <div className="flex flex-col items-start w-full gap-y-2">
-                            {websites.map((website, index) => (
+                            {websites?.map((website, index) => (
                                 <div key={index} className="flex items-center w-full gap-x-2">
                                     <input type="text" value={website} readOnly className="w-full px-6 py-3 text-sm transition-all text-[#2E2C34] duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed" />
                                     <button onClick={() => HandleRemoveWebsite(website)} className="items-center px-[16px] md:px-[26px] flex py-2 md:py-[10px] border border-red-500 text-red-500 rounded-lg" >
@@ -384,7 +384,7 @@ const SettingsPage = () => {
                                     </button>
                                 </div>
                             ))}
-                            {websites.length < maxWebsites && (
+                            {websites?.length < maxWebsites && (
                                 <div className="flex items-center w-full gap-x-2">
                                     <input type="text" value={newWebsite} onChange={(e) => setNewWebsite(e.target.value)} className="w-full px-6 py-3 text-sm transition-all text-[#2E2C34] duration-500 border-[1px] border-[#D0D5DD] outline-none rounded-md disabled:cursor-not-allowed" placeholder="Enter website URL" />
                                     <button onClick={HandleAddWebsite} className="items-center px-10 flex py-2 md:py-[10px] border border-[#2E2C34] rounded-lg" >
@@ -392,7 +392,7 @@ const SettingsPage = () => {
                                     </button>
                                 </div>
                             )}
-                            {websites.length >= maxWebsites &&
+                            {websites?.length >= maxWebsites &&
                                 <div className="flex items-center justify-center w-full py-12">
                                     <span className="text-lg font-bold">You've reacehd the maximum amount of {maxWebsites} website(s) that you can add on your <span className="capitalize ">{userInfo?.accountType} </span>plan</span>
                                 </div>

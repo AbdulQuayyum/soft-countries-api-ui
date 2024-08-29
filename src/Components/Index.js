@@ -7,7 +7,8 @@ import Hero from "./Hero";
 import DashboardHeader from "./Dashboard/DashboardHeader";
 import Datatable from "./Dashboard/DataTable";
 import Sidebar from "./Dashboard/Sidebar";
+import UserDatatable from "./Dashboard/UserDatatable";
 
 import AuthModal from "./Modals/AuthModal";
 
-export { Accordion, Footer, GetRecentActivities, Header, Hero, DashboardHeader, Datatable, Sidebar, AuthModal };
+export { Accordion, Footer, GetRecentActivities, Header, Hero, DashboardHeader, Datatable, Sidebar, UserDatatable, AuthModal };

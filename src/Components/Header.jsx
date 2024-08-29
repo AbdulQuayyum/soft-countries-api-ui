@@ -77,9 +77,8 @@ const Header = ({ setShowModal }) => {
                             data-tab={path}
                             to={path}
                             onClick={() => setActiveTab(path)}
-                            className={isActive(path)}
-                        >
-                            {path.replace('/', '')}
+                            className={isActive(path)} >
+                            {path === '/ContactUs' ? 'Contact Us' : path.replace('/', '')}
                         </Link>
                     ))}
                 </div>
