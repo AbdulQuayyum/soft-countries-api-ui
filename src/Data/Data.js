@@ -106,7 +106,10 @@ export const countryDatasetsv2 = {
   },
   "nigerian-plate-numbers": {
     description: "Provides a dataset on three letter codes on vehicle plate number and their local government in Nigeria."
-  }
+  },
+  "nigeria-states-lgas-wards": {
+    description: "Provides a dataset on states in Nigeria and their local governments, wards and their longitude and latitude"
+  },
 };
 
 export const steps = [
@@ -293,6 +296,21 @@ export const responseData = {
   },
   "nigeria-states-lga": {
     Abia: ["Aba North", "Aba South", "Arochukwu"]
+  },
+  "nigeria-states-lgas-wards": {
+    state: "Abia",
+    lgas: [
+      {
+        name: "Aba North",
+        wards: [
+          {
+            name: "Ariaria Market",
+            latitude: 5.114318609,
+            longitude: 7.343425561
+          }
+        ]
+      }
+    ]
   },
   "nigerian-plate-numbers": {
     "Federal-Capital-Territory-Abuja": [
