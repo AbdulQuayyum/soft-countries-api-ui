@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { LuChevronsLeft, LuDoorOpen, LuLayoutGrid, LuSettings2, LuBarChartBig, LuUsersRound } from "react-icons/lu";
+import { LuChevronsLeft, LuDoorOpen, LuLayoutGrid, LuSettings2, LuChartColumn, LuUsersRound } from "react-icons/lu";
 
 import { UseAuth } from "../../Contexts/Auth.Context";
 import assets from "../../Assets/Index";
@@ -54,7 +54,7 @@ const Sidebar = ({ showSidebar, setShowSidebar, isAdmin }) => {
                             }
                             <Link to="/Statistics" className={` flex items-center w-full p-4 gap-x-2 ${isActive('/Statistics')}`}>
                                 <span className="font-semibold md:block hidden text-lg text-[#2E2C34]">Statistics</span>
-                                <LuBarChartBig color="#2E2C34" size={20} />
+                                <LuChartColumn color="#2E2C34" size={20} />
                             </Link>
                             <Link to="/Settings" className={` flex items-center w-full p-4 gap-x-2 ${isActive('/Settings')}`}>
                                 <span className="font-semibold md:block hidden text-lg text-[#2E2C34]">Settings</span>
