@@ -104,6 +104,9 @@ export const countryDatasetsv2 = {
   "allcountries": {
     description: "Provides general data about all countries."
   },
+  "cities": {
+    description: "Provides a dataset of all cities name, cities code, country name, country code"
+  },
   "nigerian-plate-numbers": {
     description: "Provides a dataset on three letter codes on vehicle plate number and their local government in Nigeria."
   },
@@ -147,6 +150,19 @@ export const responseData = {
   },
   "allcountries": {
     warning: "data is quite much, check it out on your end"
+  },
+  "cities": {
+    "id": 52,
+    "name": "Ashkāsham",
+    "country_id": 1,
+    "country_code": "AF",
+    "country_name": "Afghanistan",
+    "state_id": 3901,
+    "state_code": "BDS",
+    "state_name": "Badakhshan",
+    "latitude": "36.68333000",
+    "longitude": "71.53333000",
+    "wikiDataId": "Q4805192"
   },
   "calling-code-flag": {
     name: "Afghanistan",

@@ -2,7 +2,7 @@
 
 Welcome to the Soft Countries API! This API Service provides various datasets related to countries, including flags, codes, capitals, continents, and more. The API is built using Express.js and serves JSON data dynamically based on the type specified by the user.
 
-**Domain:** [Soft Countries API](https://soft-countries-api.vercel.app/)
+**Domain:** [Soft Countries API](https://soft-countries-api.onrender.com)
 
 ## Table of Contents
 
@@ -38,6 +38,7 @@ Here are the different types of data you can fetch using the API:
 - `africa-countries`
 - `allcountries`
 - `calling-code-flag`
+- `cities`
 - `countries-average-male-height`
 - `countries-by-alphabet`
 - `countries-capital`
@@ -76,6 +77,7 @@ Here are the different types of data you can fetch using the API:
 - **africa-countries**: Provides general data about African countries.
 - **allcountries**: Provides general data about all countries.
 - **calling-code-flag**: Provides a dataset of countries calling code, country name, country code and county flag.
+- **cities**: Provides a dataset of all cities name, cities code, country name, country code.
 - **countries-capital**: Provides the capital cities of countries.
 - **countries-code**: Provides a dataset on the calling codes of countries.
 - **countries-coastline**: Provides a dataset on the length of countries coastline if it has one(in Kilometres).
@@ -135,6 +137,23 @@ Here are the different types of data you can fetch using the API:
   "code": "AF",
   "flag": "https://raw.githubusercontent.com/AbdulQuayyum/countries-flag/3fa8683a7546ce658863f556dcc8c32633fc5c1b/af.svg"
 }
+```
+#### `cities`
+
+```json
+ {
+    "id": 52,
+    "name": "Ashkāsham",
+    "country_id": 1,
+    "country_code": "AF",
+    "country_name": "Afghanistan",
+    "state_id": 3901,
+    "state_code": "BDS",
+    "state_name": "Badakhshan",
+    "latitude": "36.68333000",
+    "longitude": "71.53333000",
+    "wikiDataId": "Q4805192"
+  }
 ```
 
 #### `countries-average-male-height`
